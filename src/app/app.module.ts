@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// Routing Module
 import { AppRoutingModule } from './app-routing.module';
+
+// Browser Animations Module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { TodayComponent } from './components/home/today/today.component';
@@ -18,11 +24,8 @@ import { HeaderComponent } from './components/home/header/header.component';
     FooterComponent,
     HeaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
