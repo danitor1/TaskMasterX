@@ -1,9 +1,54 @@
-.mat-icon{
+// Icons
+.iconsDiv {
+  display: flex;
+}
+
+.mat-icon {
   height: 50px;
   width: 50px;
   cursor: pointer;
 }
 
-.material-icons{
+.material-icons {
   font-size: 50px;
+}
+
+// Alerts
+.alerts {
+  display: block;
+  height: 4.2rem;
+  margin: 0rem 1rem;
+  ng-container {
+    height: 2rem;
+    width: 100%;
+    margin: 0.25rem 0rem;
+    border: none;
+  }
+  .alert-error,
+  .alert-correct {
+    height: 32px;
+    margin-bottom: 1px;
+    .text-error {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 1rem;
+      color: var(--font2);
+      border: 1px solid var(--primary);
+      background-color: var(--error);
+    }
+    .text-correct {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 1rem;
+      color: var(--font2);
+      border: 1px solid var(--primary);
+      background-color: var(--correct);
+    }
+  }
 }

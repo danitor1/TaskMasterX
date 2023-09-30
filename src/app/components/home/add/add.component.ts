@@ -77,8 +77,11 @@ export class AddComponent {
     calendarRange: any,
     hour: any,
     title: any,
-    description: any
+    description: any,
+    priority: string
   ) {
+    // Sent information with Service to Tasks Component
+
     // Reset form
     this.myForm.reset();
     console.log('Message Submitted and Reseted!');

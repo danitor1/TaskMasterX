@@ -1,42 +1,44 @@
 <!-- Tasks Component -->
-<!-- Container -->
-<div class="container">
-  <div class="row">
-    <div class="col-4">
-      <h2>To do</h2>
-      <bs-sortable
-        [(ngModel)]="toDo"
-        fieldName="name"
-        itemClass="sortable-item"
-        itemActiveClass="sortable-item-active"
-        placeholderItem="Drag here"
-        placeholderClass="placeholderStyle text-center"
-        wrapperClass="sortable-wrapper"
-      ></bs-sortable>
-    </div>
-    <div class="col-4">
-      <h2>In progress</h2>
-      <bs-sortable
-        [(ngModel)]="inProgress"
-        fieldName="name"
-        itemClass="sortable-item"
-        itemActiveClass="sortable-item-active"
-        placeholderItem="Drag here"
-        placeholderClass="placeholderStyle text-center"
-        wrapperClass="sortable-wrapper"
-      ></bs-sortable>
-    </div>
-    <div class="col-4">
-      <h2>Done</h2>
-      <bs-sortable
-        [(ngModel)]="done"
-        fieldName="name"
-        itemClass="sortable-item"
-        itemActiveClass="sortable-item-active"
-        placeholderItem="Drag here"
-        placeholderClass="placeholderStyle text-center"
-        wrapperClass="sortable-wrapper"
-      ></bs-sortable>
+<div id="tasks">
+  <!-- Container -->
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <h2>To do</h2>
+        <bs-sortable
+          [(ngModel)]="toDo"
+          fieldName="name"
+          itemClass="sortable-item"
+          itemActiveClass="sortable-item-active"
+          placeholderItem="Drag here"
+          placeholderClass="placeholderStyle text-center"
+          wrapperClass="sortable-wrapper"
+        ></bs-sortable>
+      </div>
+      <div class="col-4">
+        <h2>In progress</h2>
+        <bs-sortable
+          [(ngModel)]="inProgress"
+          fieldName="name"
+          itemClass="sortable-item"
+          itemActiveClass="sortable-item-active"
+          placeholderItem="Drag here"
+          placeholderClass="placeholderStyle text-center"
+          wrapperClass="sortable-wrapper"
+        ></bs-sortable>
+      </div>
+      <div class="col-4">
+        <h2>Done</h2>
+        <bs-sortable
+          [(ngModel)]="done"
+          fieldName="name"
+          itemClass="sortable-item"
+          itemActiveClass="sortable-item-active"
+          placeholderItem="Drag here"
+          placeholderClass="placeholderStyle text-center"
+          wrapperClass="sortable-wrapper"
+        ></bs-sortable>
+      </div>
     </div>
   </div>
 </div>
