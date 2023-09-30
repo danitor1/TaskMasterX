@@ -15,6 +15,7 @@ export class AddComponent {
   calendarRange!: FormControl;
   hour!: FormControl;
   title!: FormControl;
+  priority!: FormControl;
   description!: FormControl;
   // To activate the notification that the message has been sent
   sent = false;
@@ -41,7 +42,7 @@ export class AddComponent {
   // Form
   FormControl() {
     this.calendar = new FormControl('', [Validators.required]);
-    this.calendarRange = new FormControl('', [Validators.required]);
+    this.calendarRange = new FormControl();
     this.hour = new FormControl('', [Validators.required]);
     this.title = new FormControl('', [
       Validators.minLength(3),
@@ -53,6 +54,7 @@ export class AddComponent {
       Validators.maxLength(1000),
       Validators.required,
     ]);
+    this.priority = new FormControl('', [Validators.required]);
   }
 
   FormGroup() {
@@ -63,6 +65,7 @@ export class AddComponent {
         hour: this.hour,
         title: this.title,
         description: this.description,
+        priority: this.priority,
       }
       // { updateOn: 'blur' }
     );

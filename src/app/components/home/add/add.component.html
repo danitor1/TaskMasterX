@@ -44,9 +44,8 @@
               type="text"
               name="calendarRange"
               formControlName="calendarRange"
-              placeholder="Date Range"
+              placeholder="Date Range (Not required)"
               bsDaterangepicker
-              required
             />
           </div>
         </div>
@@ -86,7 +85,20 @@
         ></textarea>
       </div>
       <!-- Priority -->
-      <div class="priorityDiv"></div>
+      <div class="priorityDiv">
+        <p>Priority</p>
+        <select
+          class="priority"
+          name="priority"
+          formControlName="priority"
+          required
+        >
+          <option></option>
+          <option>Urgent</option>
+          <option>Important</option>
+          <option>Not important</option>
+        </select>
+      </div>
       <!-- Submit the info of the form -->
       <div class="submitDiv">
         <button class="submit" type="submit" [disabled]="myForm.invalid">
