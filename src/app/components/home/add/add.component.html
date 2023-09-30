@@ -1,0 +1,98 @@
+<!-- Add Component -->
+<!-- Container -->
+<div class="container">
+  <!-- New Task Button -->
+  <div class="newTaskDiv">
+    <mat-icon (click)="newTask()">add_circle</mat-icon>
+  </div>
+  <!-- Close Task Button -->
+  <div class="closeTaskDiv">
+    <mat-icon (click)="closeTask()">close</mat-icon>
+  </div>
+  <!-- Form -->
+  <ng-container class="formDiv" *ngIf="task">
+    <form
+      [formGroup]="myForm"
+      (ngSubmit)="
+        onSubmit(
+          calendar.value,
+          calendarRange.value,
+          hour.value,
+          title.value,
+          description.value
+        )
+      "
+    >
+      <!-- Calendar (Dates) -->
+      <div class="calendarDiv">
+        <div class="calendar row">
+          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+            <input
+              class="form-control"
+              type="text"
+              name="calendar"
+              formControlName="calendar"
+              placeholder="Date"
+              bsDatepicker
+              required
+            />
+          </div>
+          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+            <input
+              #calendarRange
+              class="form-control"
+              type="text"
+              name="calendarRange"
+              formControlName="calendarRange"
+              placeholder="Date Range"
+              bsDaterangepicker
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Hour -->
+      <div class="hourDiv">
+        <p>Start Time</p>
+        <input
+          class="hour"
+          type="time"
+          name="hour"
+          formControlName="hour"
+          required
+        />
+      </div>
+      <!-- Title -->
+      <div class="titleDiv">
+        <input
+          #title
+          class="title"
+          name="title"
+          formControlName="title"
+          type="text"
+          placeholder="Title"
+          required
+        />
+      </div>
+      <!-- Description -->
+      <div class="descriptionDiv">
+        <textarea
+          class="description"
+          name="description"
+          formControlName="description"
+          type="text"
+          placeholder="Description"
+          required
+        ></textarea>
+      </div>
+      <!-- Priority -->
+      <div class="priorityDiv"></div>
+      <!-- Submit the info of the form -->
+      <div class="submitDiv">
+        <button class="submit" type="submit" [disabled]="myForm.invalid">
+          Add task
+        </button>
+      </div>
+    </form>
+  </ng-container>
+</div>

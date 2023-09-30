@@ -3,28 +3,47 @@ import { BrowserModule } from '@angular/platform-browser';
 
 // Routing Module
 import { AppRoutingModule } from './app-routing.module';
-
-// Browser Animations Module
+// Browser Animations Module from Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// MatIcon Module from Angular Material
+import { MatIconModule } from '@angular/material/icon';
+// Forms Module
+import { FormsModule } from '@angular/forms';
+// Reactive Forms
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { TodayComponent } from './components/home/today/today.component';
-import { CalendarComponent } from './components/home/calendar/calendar.component';
-import { FooterComponent } from './components/home/footer/footer.component';
 import { HeaderComponent } from './components/home/header/header.component';
+import { AddComponent } from './components/home/add/add.component';
+import { TasksComponent } from './components/home/tasks/tasks.component';
+import { FooterComponent } from './components/home/footer/footer.component';
+
+// Calendar Module from ngx-bootstrap
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+// Sortable Module from ngx-bootstrap
+import { SortableModule } from 'ngx-bootstrap/sortable';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TodayComponent,
-    CalendarComponent,
-    FooterComponent,
     HeaderComponent,
+    AddComponent,
+    TasksComponent,
+    FooterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
+    SortableModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

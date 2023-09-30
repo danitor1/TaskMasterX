@@ -6,7 +6,7 @@ const routes: Routes = [
   // Home Route
   {
     title: 'Home',
-    path: 'home',
+    path: '',
     component: HomeComponent,
   },
 ];
