@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 // Browser Animations Module from Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Material Slide Toggle from Angular Material
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 // MatIcon Module from Angular Material
 import { MatIconModule } from '@angular/material/icon';
 // Forms Module
@@ -38,6 +40,7 @@ import { SortableModule } from 'ngx-bootstrap/sortable';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    MatSlideToggleModule,
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,

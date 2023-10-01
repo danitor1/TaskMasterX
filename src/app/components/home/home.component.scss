@@ -1,0 +1,22 @@
+#home {
+  height: 100vh;
+  width: 100%;
+  background-color: #ffc982;
+}
+
+.mat-slide-toggle {
+  display: flex;
+  position: fixed;
+  right: 70px;
+  top: 36px;
+  z-index: 10000000;
+
+  mat-slide-toggle {
+    padding-right: 8px;
+  }
+
+  .mat-mdc-slide-toggle .mdc-switch .mdc-switch__ripple {
+    height: 0;
+    width: 0;
+  }
+}

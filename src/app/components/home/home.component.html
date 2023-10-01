@@ -1,11 +1,24 @@
-<!-- Header -->
-<app-header></app-header>
+<!-- Home -->
+<div id="home" [ngClass]="{ 'light-mode': !darkMode, 'dark-mode': darkMode }">
+  <!-- Material Slide Toggle to change between light & dark modes -->
+  <div class="mat-slide-toggle">
+    <mat-slide-toggle
+      [(ngModel)]="darkMode"
+      (change)="changeMode()"
+      aria-label="Slide"
+    ></mat-slide-toggle>
+    <mat-icon>bedtime</mat-icon>
+  </div>
 
-<!-- Add -->
-<app-add></app-add>
+  <!-- Header -->
+  <app-header></app-header>
 
-<!-- Tasks -->
-<app-tasks></app-tasks>
+  <!-- Add -->
+  <app-add></app-add>
 
-<!-- Footer -->
-<app-footer></app-footer>
+  <!-- Tasks -->
+  <app-tasks></app-tasks>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</div>

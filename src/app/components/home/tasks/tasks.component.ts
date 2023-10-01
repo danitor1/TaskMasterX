@@ -10,18 +10,18 @@ import { taskObject } from 'src/app/interfaces/taskObject';
 export class TasksComponent {
   // Tasks by default (using a custom interface)
   toDo: taskObject[] = [
-    { id: 1, name: 'Windstorm' },
-    { id: 2, name: 'Bombasto' },
-    { id: 3, name: 'Magneta' },
+    { id: 1, title: 'Task 1' },
+    { id: 2, title: 'Task 2' },
+    { id: 3, title: 'Task 3' },
   ];
   inProgress: taskObject[] = [
-    { id: 4, name: 'Tornado' },
-    { id: 5, name: 'Mr. O' },
-    { id: 6, name: 'Tomato' },
+    { id: 4, title: 'Task 4' },
+    { id: 5, title: 'Task 5' },
+    { id: 6, title: 'Task 6' },
   ];
   done: taskObject[] = [
-    { id: 7, name: 'Paner' },
-    { id: 8, name: 'Soletsc' },
-    { id: 9, name: 'Marenostru' },
+    { id: 7, title: 'Task 7' },
+    { id: 8, title: 'Task 8' },
+    { id: 9, title: 'Task 9' },
   ];
 }

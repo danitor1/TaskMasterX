@@ -29,14 +29,13 @@ export class AddComponent {
     this.FormGroup();
   }
 
-  // Show the form
+  // New Task Button (show or hide the form)
   newTask() {
-    return (this.task = true);
-  }
-
-  // Close the form
-  closeTask() {
-    return (this.task = false);
+    if (this.task == false) {
+      this.task = true;
+    } else {
+      this.task = false;
+    }
   }
 
   // Form
@@ -45,12 +44,10 @@ export class AddComponent {
     this.calendarRange = new FormControl();
     this.hour = new FormControl('', [Validators.required]);
     this.title = new FormControl('', [
-      Validators.minLength(3),
       Validators.maxLength(150),
       Validators.required,
     ]);
     this.description = new FormControl('', [
-      Validators.minLength(5),
       Validators.maxLength(1000),
       Validators.required,
     ]);
@@ -82,9 +79,12 @@ export class AddComponent {
   ) {
     // Sent information with Service to Tasks Component
 
+    // Hide the form
+    this.task = false;
+
     // Reset form
     this.myForm.reset();
-    console.log('Message Submitted and Reseted!');
+
     // Change "sent" property to true for display notification
     this.sent = true;
   }

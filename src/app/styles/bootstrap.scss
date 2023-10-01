@@ -33,3 +33,25 @@ a {
     width: 92%;
   }
 }
+
+// General styles for ngx-bootstrap
+bs-sortable * {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 3rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: grab;
+  background-color: var(--primary);
+}
+bs-sortable {
+  background-color: transparent;
+}
+.sortable-wrapper {
+  display: contents;
+}

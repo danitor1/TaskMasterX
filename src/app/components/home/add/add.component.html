@@ -2,16 +2,9 @@
 <div id="add">
   <!-- Container -->
   <div class="container">
-    <!-- Icons New and Close -->
-    <div class="iconsDiv">
-      <!-- New Task Button -->
-      <div class="newTaskDiv">
-        <mat-icon (click)="newTask()">add_circle</mat-icon>
-      </div>
-      <!-- Close Task Button -->
-      <div class="closeTaskDiv">
-        <mat-icon (click)="closeTask()">close</mat-icon>
-      </div>
+    <!-- New Task -->
+    <div class="newTaskDiv">
+      <mat-icon (click)="newTask()">add_circle</mat-icon>
     </div>
     <!-- Form -->
     <ng-container class="formDiv" *ngIf="task">
@@ -30,30 +23,43 @@
       >
         <!-- Calendar (Dates) -->
         <div class="calendarDiv">
-          <div class="calendar row">
-            <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-              <input
-                class="form-control"
-                type="text"
-                name="calendar"
-                formControlName="calendar"
-                placeholder="Date"
-                bsDatepicker
-                required
-              />
-            </div>
-            <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-              <input
-                #calendarRange
-                class="form-control"
-                type="text"
-                name="calendarRange"
-                formControlName="calendarRange"
-                placeholder="Date Range (Optional)"
-                bsDaterangepicker
-              />
-            </div>
+          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+            <input
+              class="form-control"
+              type="text"
+              name="calendar"
+              formControlName="calendar"
+              placeholder="Date"
+              bsDatepicker
+              required
+            />
           </div>
+          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+            <input
+              #calendarRange
+              class="form-control"
+              type="text"
+              name="calendarRange"
+              formControlName="calendarRange"
+              placeholder="Date Range (Optional)"
+              bsDaterangepicker
+            />
+          </div>
+        </div>
+        <!-- Alerts -->
+        <div class="alerts">
+          <!-- Alert Valid of Calendar -->
+          <ng-container *ngIf="calendar.valid && calendar.dirty">
+            <div class="alert-correct">
+              <p class="text-correct">Calendar is valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Error of Calendar -->
+          <ng-container *ngIf="calendar.invalid && calendar.dirty">
+            <div class="alert-error">
+              <p class="text-error">Calendar is not valid</p>
+            </div>
+          </ng-container>
         </div>
         <!-- Hour -->
         <div class="hourDiv">
@@ -66,6 +72,21 @@
             required
           />
         </div>
+        <!-- Alerts -->
+        <div class="alerts">
+          <!-- Alert Valid of Hour -->
+          <ng-container *ngIf="hour.valid && hour.dirty">
+            <div class="alert-correct">
+              <p class="text-correct">Hour is valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Error of Hour -->
+          <ng-container *ngIf="hour.invalid && hour.dirty">
+            <div class="alert-error">
+              <p class="text-error">Hour is not valid</p>
+            </div>
+          </ng-container>
+        </div>
         <!-- Title -->
         <div class="titleDiv">
           <input
@@ -77,6 +98,27 @@
             required
           />
         </div>
+        <!-- Alerts -->
+        <div class="alerts">
+          <!-- Alert Valid of Title -->
+          <ng-container
+            *ngIf="title.valid && title.dirty && title.value.length <= 150"
+          >
+            <div class="alert-correct">
+              <p class="text-correct">Title is valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Error of Title -->
+          <ng-container
+            *ngIf="title.invalid && title.dirty && title.value.length > 150"
+          >
+            <div class="alert-error">
+              <p class="text-error">
+                Title is not valid max of 150 characters
+              </p>
+            </div>
+          </ng-container>
+        </div>
         <!-- Description -->
         <div class="descriptionDiv">
           <textarea
@@ -87,6 +129,35 @@
             placeholder="Description"
             required
           ></textarea>
+        </div>
+        <!-- Alerts -->
+        <div class="alerts">
+          <!-- Alert Valid of Description -->
+          <ng-container
+            *ngIf="
+              description.valid &&
+              description.dirty &&
+              description.value.length <= 1000
+            "
+          >
+            <div class="alert-correct">
+              <p class="text-correct">Description is valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Error of Description -->
+          <ng-container
+            *ngIf="
+              description.invalid &&
+              description.dirty &&
+              title.value.length > 1000
+            "
+          >
+            <div class="alert-error">
+              <p class="text-error">
+                Description max of 1000 characters
+              </p>
+            </div>
+          </ng-container>
         </div>
         <!-- Priority -->
         <div class="priorityDiv">
@@ -103,6 +174,21 @@
             <option>Not important</option>
           </select>
         </div>
+        <!-- Alerts -->
+        <div class="alerts">
+          <!-- Alert Valid of Priority -->
+          <ng-container *ngIf="priority.valid && priority.dirty">
+            <div class="alert-correct">
+              <p class="text-correct">Priority is valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Error of Priority -->
+          <ng-container *ngIf="priority.invalid && priority.dirty">
+            <div class="alert-error">
+              <p class="text-error">Priority is not valid</p>
+            </div>
+          </ng-container>
+        </div>
         <!-- Submit the info of the form -->
         <div class="submitDiv">
           <button class="submit" type="submit" [disabled]="myForm.invalid">
@@ -110,101 +196,6 @@
           </button>
         </div>
       </form>
-      <!-- Alerts -->
-      <div class="alerts">
-        <!-- Alert Valid of Calendar -->
-        <ng-container *ngIf="calendar.valid && calendar.dirty">
-          <div class="alert-correct">
-            <p class="text-correct">Calendar is valid</p>
-          </div>
-        </ng-container>
-        <!-- Alert Error of Calendar -->
-        <ng-container *ngIf="calendar.invalid && calendar.dirty">
-          <div class="alert-error">
-            <p class="text-error">Calendar is not valid</p>
-          </div>
-        </ng-container>
-        <!-- Alert Valid of Hour -->
-        <ng-container *ngIf="hour.valid && hour.dirty">
-          <div class="alert-correct">
-            <p class="text-correct">Hour is valid</p>
-          </div>
-        </ng-container>
-        <!-- Alert Error of Hour -->
-        <ng-container *ngIf="hour.invalid && hour.dirty">
-          <div class="alert-error">
-            <p class="text-error">Hour is not valid</p>
-          </div>
-        </ng-container>
-        <!-- Alert Valid of Title -->
-        <ng-container
-          *ngIf="
-            title.valid &&
-            title.dirty &&
-            title.value.length >= 3 &&
-            title.value.length <= 150
-          "
-        >
-          <div class="alert-correct">
-            <p class="text-correct">Title is valid</p>
-          </div>
-        </ng-container>
-        <!-- Alert Error of Title -->
-        <ng-container
-          *ngIf="
-            (title.invalid && title.dirty && title.value.length < 3) ||
-            (title.invalid && title.dirty && title.value.length > 150)
-          "
-        >
-          <div class="alert-error">
-            <p class="text-error">
-              Title is not valid (from 3 to 150 characters)
-            </p>
-          </div>
-        </ng-container>
-        <!-- Alert Valid of Description -->
-        <ng-container
-          *ngIf="
-            description.valid &&
-            description.dirty &&
-            description.value.length >= 5 &&
-            description.value.length <= 1000
-          "
-        >
-          <div class="alert-correct">
-            <p class="text-correct">Description is valid</p>
-          </div>
-        </ng-container>
-        <!-- Alert Error of Description -->
-        <ng-container
-          *ngIf="
-            (description.invalid &&
-              description.dirty &&
-              description.value.length < 5) ||
-            (description.invalid &&
-              description.dirty &&
-              title.value.length > 1000)
-          "
-        >
-          <div class="alert-error">
-            <p class="text-error">
-              Description is not valid (from 5 to 1000 characters)
-            </p>
-          </div>
-        </ng-container>
-        <!-- Alert Valid of Priority -->
-        <ng-container *ngIf="priority.valid && priority.dirty">
-          <div class="alert-correct">
-            <p class="text-correct">Priority is valid</p>
-          </div>
-        </ng-container>
-        <!-- Alert Error of Priority -->
-        <ng-container *ngIf="priority.invalid && priority.dirty">
-          <div class="alert-error">
-            <p class="text-error">Priority is not valid</p>
-          </div>
-        </ng-container>
-      </div>
     </ng-container>
   </div>
 </div>

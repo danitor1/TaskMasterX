@@ -2,12 +2,18 @@
 <div id="tasks">
   <!-- Container -->
   <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <h2>To do</h2>
+    <!-- Tasks Div -->
+    <div class="tasksDiv">
+      <!-- Task Div -->
+      <div class="taskDiv">
+        <!-- Title -->
+        <div class="toDoTitle title">
+          <h2 class="p black">To do</h2>
+        </div>
+        <!-- List -->
         <bs-sortable
           [(ngModel)]="toDo"
-          fieldName="name"
+          fieldName="title"
           itemClass="sortable-item"
           itemActiveClass="sortable-item-active"
           placeholderItem="Drag here"
@@ -15,11 +21,16 @@
           wrapperClass="sortable-wrapper"
         ></bs-sortable>
       </div>
-      <div class="col-4">
-        <h2>In progress</h2>
+      <!-- Task Div -->
+      <div class="taskDiv">
+        <!-- Title -->
+        <div class="inProgressTitle title">
+          <h2 class="p black">In progress</h2>
+        </div>
+        <!-- List -->
         <bs-sortable
           [(ngModel)]="inProgress"
-          fieldName="name"
+          fieldName="title"
           itemClass="sortable-item"
           itemActiveClass="sortable-item-active"
           placeholderItem="Drag here"
@@ -27,11 +38,16 @@
           wrapperClass="sortable-wrapper"
         ></bs-sortable>
       </div>
-      <div class="col-4">
-        <h2>Done</h2>
+      <!-- Task Div -->
+      <div class="taskDiv">
+        <!-- Title -->
+        <div class="doneTitle title">
+          <h2 class="p black">Done</h2>
+        </div>
+        <!-- List -->
         <bs-sortable
           [(ngModel)]="done"
-          fieldName="name"
+          fieldName="title"
           itemClass="sortable-item"
           itemActiveClass="sortable-item-active"
           placeholderItem="Drag here"
