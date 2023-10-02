@@ -10,13 +10,14 @@
         <div class="toDoTitle title">
           <h2 class="p black">To do</h2>
         </div>
-        <!-- List -->
+        <!-- List To Do -->
         <div
           class="list"
           cdkDropList
           [cdkDropListData]="toDo"
           (cdkDropListDropped)="drop($event)"
         >
+          <!-- Task -->
           <div
             class="task"
             *ngFor="let item of toDo"
@@ -29,9 +30,18 @@
             <div>{{ item.hour }}</div>
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
+            <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
+            <!-- Edit Button -->
+            <button class="edit">
+              <mat-icon class="mat-18">edit</mat-icon>
+            </button>
+            <!-- Delete Button -->
+            <button class="delete">
+              <mat-icon class="mat-18">delete</mat-icon>
+            </button>
           </div>
         </div>
       </div>
@@ -41,13 +51,14 @@
         <div class="inProgressTitle title">
           <h2 class="p black">In progress</h2>
         </div>
-        <!-- List -->
+        <!-- List In Progress -->
         <div
           class="list"
           cdkDropList
           [cdkDropListData]="inProgress"
           (cdkDropListDropped)="drop($event)"
         >
+          <!-- Task -->
           <div
             class="task"
             *ngFor="let item of inProgress"
@@ -60,9 +71,18 @@
             <div>{{ item.hour }}</div>
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
+            <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
+            <!-- Edit Button -->
+            <button class="edit">
+              <mat-icon class="mat-18">edit</mat-icon>
+            </button>
+            <!-- Delete Button -->
+            <button class="delete">
+              <mat-icon class="mat-18">delete</mat-icon>
+            </button>
           </div>
         </div>
       </div>
@@ -72,13 +92,14 @@
         <div class="doneTitle title">
           <h2 class="p black">Done</h2>
         </div>
-        <!-- List -->
+        <!-- List Done -->
         <div
           class="list"
           cdkDropList
           [cdkDropListData]="done"
           (cdkDropListDropped)="drop($event)"
         >
+          <!-- Task -->
           <div
             class="task"
             *ngFor="let item of done"
@@ -91,9 +112,18 @@
             <div>{{ item.hour }}</div>
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
+            <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
+            <!-- Edit Button -->
+            <button class="edit">
+              <mat-icon class="mat-18">edit</mat-icon>
+            </button>
+            <!-- Delete Button -->
+            <button class="delete">
+              <mat-icon class="mat-18">delete</mat-icon>
+            </button>
           </div>
         </div>
       </div>

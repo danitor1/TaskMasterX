@@ -1,23 +1,22 @@
 <!-- Home -->
 <div id="home" [ngClass]="{ 'light-mode': !darkMode, 'dark-mode': darkMode }">
   <!-- Light & Dark modes -->
-  <div class="modesDiv">
-    <mat-icon
-      class="modes"
-      (click)="changeMode()"
-      aria-label="Change mode"
-      >change_circle</mat-icon
-    >
-  </div>
+  <mat-icon class="modes" (click)="changeMode()" aria-label="Change mode"
+    >change_circle</mat-icon
+  >
 
   <!-- Header -->
   <app-header></app-header>
 
-  <!-- Add -->
-  <app-add></app-add>
+  <!-- Main Content -->
+  <main>
+    <!-- Sections: -->
+    <!-- Add -->
+    <app-add></app-add>
 
-  <!-- Tasks -->
-  <app-tasks></app-tasks>
+    <!-- Tasks -->
+    <app-tasks></app-tasks>
+  </main>
 
   <!-- Footer -->
   <app-footer></app-footer>
