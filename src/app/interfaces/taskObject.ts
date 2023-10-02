@@ -1,4 +1,9 @@
 export interface taskObject {
-  id: number;
-  title: string;
+  calendar: any;
+  calendarRange?: any;
+  hour: any;
+  title: any;
+  description: any;
+  priority: string;
+  showDescription: boolean;
 }

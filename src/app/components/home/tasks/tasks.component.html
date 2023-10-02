@@ -3,7 +3,7 @@
   <!-- Container -->
   <div class="container">
     <!-- Tasks Div -->
-    <div class="tasksDiv">
+    <div cdkDropListGroup class="tasksDiv">
       <!-- Task Div -->
       <div class="taskDiv">
         <!-- Title -->
@@ -11,15 +11,29 @@
           <h2 class="p black">To do</h2>
         </div>
         <!-- List -->
-        <bs-sortable
-          [(ngModel)]="toDo"
-          fieldName="title"
-          itemClass="sortable-item"
-          itemActiveClass="sortable-item-active"
-          placeholderItem="Drag here"
-          placeholderClass="placeholderStyle text-center"
-          wrapperClass="sortable-wrapper"
-        ></bs-sortable>
+        <div
+          class="list"
+          cdkDropList
+          [cdkDropListData]="toDo"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="task"
+            *ngFor="let item of toDo"
+            cdkDrag
+            (click)="openOrCloseDescription(item)"
+            matTooltip="Drag & drop to sort your lists. Click to see/hide description."
+          >
+            <div>{{ item.calendar }}</div>
+            <div>{{ item.calendarRange }}</div>
+            <div>{{ item.hour }}</div>
+            <div>{{ item.title }}</div>
+            <div>{{ item.priority }}</div>
+            <ng-container *ngIf="item.showDescription">
+              <div>{{ item.description }}</div>
+            </ng-container>
+          </div>
+        </div>
       </div>
       <!-- Task Div -->
       <div class="taskDiv">
@@ -28,15 +42,29 @@
           <h2 class="p black">In progress</h2>
         </div>
         <!-- List -->
-        <bs-sortable
-          [(ngModel)]="inProgress"
-          fieldName="title"
-          itemClass="sortable-item"
-          itemActiveClass="sortable-item-active"
-          placeholderItem="Drag here"
-          placeholderClass="placeholderStyle text-center"
-          wrapperClass="sortable-wrapper"
-        ></bs-sortable>
+        <div
+          class="list"
+          cdkDropList
+          [cdkDropListData]="inProgress"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="task"
+            *ngFor="let item of inProgress"
+            cdkDrag
+            (click)="openOrCloseDescription(item)"
+            matTooltip="Drag & drop to sort your lists. Click to see/hide description."
+          >
+            <div>{{ item.calendar }}</div>
+            <div>{{ item.calendarRange }}</div>
+            <div>{{ item.hour }}</div>
+            <div>{{ item.title }}</div>
+            <div>{{ item.priority }}</div>
+            <ng-container *ngIf="item.showDescription">
+              <div>{{ item.description }}</div>
+            </ng-container>
+          </div>
+        </div>
       </div>
       <!-- Task Div -->
       <div class="taskDiv">
@@ -45,15 +73,29 @@
           <h2 class="p black">Done</h2>
         </div>
         <!-- List -->
-        <bs-sortable
-          [(ngModel)]="done"
-          fieldName="title"
-          itemClass="sortable-item"
-          itemActiveClass="sortable-item-active"
-          placeholderItem="Drag here"
-          placeholderClass="placeholderStyle text-center"
-          wrapperClass="sortable-wrapper"
-        ></bs-sortable>
+        <div
+          class="list"
+          cdkDropList
+          [cdkDropListData]="done"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            class="task"
+            *ngFor="let item of done"
+            cdkDrag
+            (click)="openOrCloseDescription(item)"
+            matTooltip="Drag & drop to sort your lists. Click to see/hide description."
+          >
+            <div>{{ item.calendar }}</div>
+            <div>{{ item.calendarRange }}</div>
+            <div>{{ item.hour }}</div>
+            <div>{{ item.title }}</div>
+            <div>{{ item.priority }}</div>
+            <ng-container *ngIf="item.showDescription">
+              <div>{{ item.description }}</div>
+            </ng-container>
+          </div>
+        </div>
       </div>
     </div>
   </div>

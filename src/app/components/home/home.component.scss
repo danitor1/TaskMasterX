@@ -4,19 +4,32 @@
   background-color: #ffc982;
 }
 
-.mat-slide-toggle {
-  display: flex;
+// Light & Dark modes
+.modes {
   position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   right: 70px;
   top: 36px;
-  z-index: 10000000;
-
-  mat-slide-toggle {
-    padding-right: 8px;
+  height: 3rem;
+  width: 3rem;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: 0.3s;
+  color: var(--primary);
+  &:hover {
+    color: var(--secondary);
+    animation: rotate-center 0.3s linear forwards;
   }
+}
 
-  .mat-mdc-slide-toggle .mdc-switch .mdc-switch__ripple {
-    height: 0;
-    width: 0;
+// Animation for Modes button
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
   }
 }

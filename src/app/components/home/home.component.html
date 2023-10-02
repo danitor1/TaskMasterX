@@ -1,13 +1,13 @@
 <!-- Home -->
 <div id="home" [ngClass]="{ 'light-mode': !darkMode, 'dark-mode': darkMode }">
-  <!-- Material Slide Toggle to change between light & dark modes -->
-  <div class="mat-slide-toggle">
-    <mat-slide-toggle
-      [(ngModel)]="darkMode"
-      (change)="changeMode()"
-      aria-label="Slide"
-    ></mat-slide-toggle>
-    <mat-icon>bedtime</mat-icon>
+  <!-- Light & Dark modes -->
+  <div class="modesDiv">
+    <mat-icon
+      class="modes"
+      (click)="changeMode()"
+      aria-label="Change mode"
+      >change_circle</mat-icon
+    >
   </div>
 
   <!-- Header -->

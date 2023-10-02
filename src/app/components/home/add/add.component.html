@@ -105,7 +105,7 @@
             *ngIf="title.valid && title.dirty && title.value.length <= 150"
           >
             <div class="alert-correct">
-              <p class="text-correct">Title is valid</p>
+              <p class="text-correct">Title is valid (max 150 characters)</p>
             </div>
           </ng-container>
           <!-- Alert Error of Title -->
@@ -113,9 +113,7 @@
             *ngIf="title.invalid && title.dirty && title.value.length > 150"
           >
             <div class="alert-error">
-              <p class="text-error">
-                Title is not valid max of 150 characters
-              </p>
+              <p class="text-error">Title is not valid (max 150 characters)</p>
             </div>
           </ng-container>
         </div>
@@ -141,7 +139,7 @@
             "
           >
             <div class="alert-correct">
-              <p class="text-correct">Description is valid</p>
+              <p class="text-correct">Description is valid (max 1000 characters)</p>
             </div>
           </ng-container>
           <!-- Alert Error of Description -->
@@ -149,13 +147,11 @@
             *ngIf="
               description.invalid &&
               description.dirty &&
-              title.value.length > 1000
+              description.value.length > 1000
             "
           >
             <div class="alert-error">
-              <p class="text-error">
-                Description max of 1000 characters
-              </p>
+              <p class="text-error">Description is not valid (max 1000 characters)</p>
             </div>
           </ng-container>
         </div>

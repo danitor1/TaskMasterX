@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SendTasksService } from 'src/app/services/sendTasks/send-tasks.service';
 
 @Component({
   selector: 'app-add',
@@ -21,6 +22,8 @@ export class AddComponent {
   sent = false;
   // New Date() for the Time Picker
   mytime: Date = new Date();
+
+  constructor(private sendTasksService: SendTasksService) {}
 
   // ngOnInit()
   ngOnInit(): void {
@@ -78,6 +81,18 @@ export class AddComponent {
     priority: string
   ) {
     // Sent information with Service to Tasks Component
+    this.sendTasksService.emitEvent();
+
+    console.log(
+      'calendario ',
+      calendar,
+      'calendario rango ',
+      calendarRange,
+      hour,
+      title,
+      description,
+      priority
+    );
 
     // Hide the form
     this.task = false;

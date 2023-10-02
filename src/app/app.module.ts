@@ -24,8 +24,11 @@ import { FooterComponent } from './components/home/footer/footer.component';
 
 // Calendar Module from ngx-bootstrap
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-// Sortable Module from ngx-bootstrap
-import { SortableModule } from 'ngx-bootstrap/sortable';
+
+// Drag & Drop from Angular CDK
+import { DragDropModule } from '@angular/cdk/drag-drop';
+// Material Tooltip from Angular CDK
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { SortableModule } from 'ngx-bootstrap/sortable';
     FormsModule,
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
-    SortableModule.forRoot(),
+    DragDropModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
