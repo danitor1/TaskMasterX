@@ -12,8 +12,8 @@
         [formGroup]="myForm"
         (ngSubmit)="
           onSubmit(
-            calendar.value,
-            calendarRange.value,
+            calendarStart.value,
+            calendarEnd.value,
             hour.value,
             title.value,
             description.value,
@@ -21,83 +21,18 @@
           )
         "
       >
-        <!-- Calendar (Dates) -->
-        <div class="calendarDiv">
-          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-            <input
-              class="form-control"
-              type="text"
-              name="calendar"
-              formControlName="calendar"
-              placeholder="Date"
-              bsDatepicker
-              required
-            />
-          </div>
-          <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-            <input
-              #calendarRange
-              class="form-control"
-              type="text"
-              name="calendarRange"
-              formControlName="calendarRange"
-              placeholder="Date Range (Optional)"
-              bsDaterangepicker
-            />
-          </div>
-        </div>
-        <!-- Alerts -->
-        <div class="alerts">
-          <!-- Alert Valid of Calendar -->
-          <ng-container *ngIf="calendar.valid && calendar.dirty">
-            <div class="alert-correct">
-              <p class="text-correct">Calendar is valid</p>
-            </div>
-          </ng-container>
-          <!-- Alert Error of Calendar -->
-          <ng-container *ngIf="calendar.invalid && calendar.dirty">
-            <div class="alert-error">
-              <p class="text-error">Calendar is not valid</p>
-            </div>
-          </ng-container>
-        </div>
-        <!-- Hour -->
-        <div class="hourDiv">
-          <p>Start Time</p>
-          <input
-            class="hour"
-            type="time"
-            name="hour"
-            formControlName="hour"
-            required
-          />
-        </div>
-        <!-- Alerts -->
-        <div class="alerts">
-          <!-- Alert Valid of Hour -->
-          <ng-container *ngIf="hour.valid && hour.dirty">
-            <div class="alert-correct">
-              <p class="text-correct">Hour is valid</p>
-            </div>
-          </ng-container>
-          <!-- Alert Error of Hour -->
-          <ng-container *ngIf="hour.invalid && hour.dirty">
-            <div class="alert-error">
-              <p class="text-error">Hour is not valid</p>
-            </div>
-          </ng-container>
-        </div>
         <!-- Title -->
-        <div class="titleDiv">
+        <mat-form-field class="titleDiv">
+          <mat-label>Title</mat-label>
           <input
+            matInput
             class="title"
             name="title"
             formControlName="title"
             type="text"
-            placeholder="Title"
             required
           />
-        </div>
+        </mat-form-field>
         <!-- Alerts -->
         <div class="alerts">
           <!-- Alert Valid of Title -->
@@ -118,16 +53,17 @@
           </ng-container>
         </div>
         <!-- Description -->
-        <div class="descriptionDiv">
+        <mat-form-field class="descriptionDiv">
+          <mat-label>Description</mat-label>
           <textarea
+            matInput
             class="description"
             name="description"
             formControlName="description"
             type="text"
-            placeholder="Description"
             required
           ></textarea>
-        </div>
+        </mat-form-field>
         <!-- Alerts -->
         <div class="alerts">
           <!-- Alert Valid of Description -->
@@ -139,7 +75,9 @@
             "
           >
             <div class="alert-correct">
-              <p class="text-correct">Description is valid (max 1000 characters)</p>
+              <p class="text-correct">
+                Description is valid (max 1000 characters)
+              </p>
             </div>
           </ng-container>
           <!-- Alert Error of Description -->
@@ -151,25 +89,26 @@
             "
           >
             <div class="alert-error">
-              <p class="text-error">Description is not valid (max 1000 characters)</p>
+              <p class="text-error">
+                Description is not valid (max 1000 characters)
+              </p>
             </div>
           </ng-container>
         </div>
         <!-- Priority -->
-        <div class="priorityDiv">
-          <p>Priority</p>
-          <select
+        <mat-form-field class="priorityDiv">
+          <mat-label>Priority</mat-label>
+          <mat-select
             class="priority"
             name="priority"
             formControlName="priority"
             required
           >
-            <option></option>
-            <option>Urgent</option>
-            <option>Important</option>
-            <option>Not important</option>
-          </select>
-        </div>
+            <mat-option value="urgent">Urgent</mat-option>
+            <mat-option value="important">Important</mat-option>
+            <mat-option value="notImportant">Not important</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- Alerts -->
         <div class="alerts">
           <!-- Alert Valid of Priority -->
@@ -182,6 +121,95 @@
           <ng-container *ngIf="priority.invalid && priority.dirty">
             <div class="alert-error">
               <p class="text-error">Priority is not valid</p>
+            </div>
+          </ng-container>
+        </div>
+        <!-- Calendar (Dates) -->
+        <mat-form-field class="calendarDiv" style="width: 600px">
+          <mat-label>Start-Finish Dates</mat-label>
+          <mat-date-range-input [rangePicker]="rangePicker">
+            <input
+              matStartDate
+              class="calendarStart"
+              type="text"
+              name="calendarStart"
+              formControlName="calendarStart"
+              required
+            />
+            <input
+              matEndDate
+              class="calendarEnd"
+              type="text"
+              name="calendarEnd"
+              formControlName="calendarEnd"
+              required
+            />
+          </mat-date-range-input>
+          <mat-datepicker-toggle
+            Dates
+            matIconSuffix
+            [for]="rangePicker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #rangePicker>
+            <mat-date-range-picker-actions>
+              <button mat-button matDateRangePickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" matDateRangePickerApply>
+                Apply
+              </button>
+            </mat-date-range-picker-actions>
+          </mat-date-range-picker>
+        </mat-form-field>
+        <!-- Alerts -->
+        <div class="alerts">
+          <!-- Alert Valid of CalendarStart -->
+          <ng-container *ngIf="calendarStart.valid && calendarStart.dirty">
+            <div class="alert-correct">
+              <p class="text-correct">Start day is valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Error of Calendar -->
+          <ng-container *ngIf="calendarStart.invalid && calendarStart.dirty">
+            <div class="alert-error">
+              <p class="text-error">Start day not valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Valid of CalendarEnd -->
+          <ng-container *ngIf="calendarEnd.valid && calendarEnd.dirty">
+            <div class="alert-correct">
+              <p class="text-correct">End day is valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Error of Calendar -->
+          <ng-container *ngIf="calendarEnd.invalid && calendarEnd.dirty">
+            <div class="alert-error">
+              <p class="text-error">End day is not valid</p>
+            </div>
+          </ng-container>
+        </div>
+        <!-- Hour -->
+        <mat-form-field class="hourDiv">
+          <mat-label>Start Time</mat-label>
+          <input
+            matInput
+            class="hour"
+            type="time"
+            name="hour"
+            formControlName="hour"
+            required
+          />
+        </mat-form-field>
+        <!-- Alerts -->
+        <div class="alerts">
+          <!-- Alert Valid of Hour -->
+          <ng-container *ngIf="hour.valid && hour.dirty">
+            <div class="alert-correct">
+              <p class="text-correct">Hour is valid</p>
+            </div>
+          </ng-container>
+          <!-- Alert Error of Hour -->
+          <ng-container *ngIf="hour.invalid && hour.dirty">
+            <div class="alert-error">
+              <p class="text-error">Hour is not valid</p>
             </div>
           </ng-container>
         </div>

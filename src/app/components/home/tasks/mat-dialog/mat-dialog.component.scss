@@ -1,0 +1,42 @@
+* {
+  font-family: inherit !important;
+}
+
+#mat-dialog {
+  cursor: default;
+  background-color: var(--primary);
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: start;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+p {
+  color: var(--font2);
+}
+
+.stars p {
+  display: flex;
+  height: 1.5rem;
+}
+
+.icons {
+  font-family: "Material Icons" !important;
+}
+
+button {
+  height: 2.2rem;
+  border: none;
+  padding: 0rem 0.7rem;
+  margin: 0.1rem;
+  transition: 0.15s;
+  color: var(--font2);
+  background-color: white;
+  border: 1px solid var(--primary);
+  &:hover {
+    color: var(--font);
+    background-color: var(--primary);
+  }
+}

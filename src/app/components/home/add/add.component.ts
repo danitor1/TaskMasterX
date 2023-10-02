@@ -12,8 +12,8 @@ export class AddComponent {
   task: boolean = false;
   // ForomGroup and FormControl properties
   myForm!: FormGroup;
-  calendar!: FormControl;
-  calendarRange!: FormControl;
+  calendarStart!: FormControl;
+  calendarEnd!: FormControl;
   hour!: FormControl;
   title!: FormControl;
   priority!: FormControl;
@@ -34,17 +34,13 @@ export class AddComponent {
 
   // New Task Button (show or hide the form)
   newTask() {
-    if (this.task == false) {
-      this.task = true;
-    } else {
-      this.task = false;
-    }
+    this.task = !this.task;
   }
 
   // Form
   FormControl() {
-    this.calendar = new FormControl('', [Validators.required]);
-    this.calendarRange = new FormControl();
+    this.calendarStart = new FormControl('', [Validators.required]);
+    this.calendarEnd = new FormControl('', [Validators.required]);
     this.hour = new FormControl('', [Validators.required]);
     this.title = new FormControl('', [
       Validators.maxLength(150),
@@ -60,8 +56,8 @@ export class AddComponent {
   FormGroup() {
     this.myForm = new FormGroup(
       {
-        calendar: this.calendar,
-        calendarRange: this.calendarRange,
+        calendarStart: this.calendarStart,
+        calendarEnd: this.calendarEnd,
         hour: this.hour,
         title: this.title,
         description: this.description,
@@ -73,8 +69,8 @@ export class AddComponent {
 
   // Submit the info of the form
   onSubmit(
-    calendar: any,
-    calendarRange: any,
+    calendarStart: any,
+    calendarEnd: any,
     hour: any,
     title: any,
     description: any,
@@ -83,16 +79,7 @@ export class AddComponent {
     // Sent information with Service to Tasks Component
     this.sendTasksService.emitEvent();
 
-    console.log(
-      'calendario ',
-      calendar,
-      'calendario rango ',
-      calendarRange,
-      hour,
-      title,
-      description,
-      priority
-    );
+    console.log(calendarStart, calendarEnd, hour, title, description, priority);
 
     // Hide the form
     this.task = false;

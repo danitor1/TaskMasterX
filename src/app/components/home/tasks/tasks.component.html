@@ -25,21 +25,20 @@
             (click)="openOrCloseDescription(item)"
             matTooltip="Drag & drop to sort your lists. Click to see/hide description."
           >
-            <div>{{ item.calendar }}</div>
-            <div>{{ item.calendarRange }}</div>
-            <div>{{ item.hour }}</div>
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
+            <div>{{ item.calendarStart + " - " + item.calendarEnd }}</div>
+            <div>{{ item.hour + " h" }}</div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
             <!-- Edit Button -->
-            <button class="edit">
+            <button class="edit" (click)="editTask(item, item, 'toDo')">
               <mat-icon class="mat-18">edit</mat-icon>
             </button>
             <!-- Delete Button -->
-            <button class="delete">
+            <button class="delete" (click)="deleteDialog(item)">
               <mat-icon class="mat-18">delete</mat-icon>
             </button>
           </div>
@@ -66,21 +65,20 @@
             (click)="openOrCloseDescription(item)"
             matTooltip="Drag & drop to sort your lists. Click to see/hide description."
           >
-            <div>{{ item.calendar }}</div>
-            <div>{{ item.calendarRange }}</div>
-            <div>{{ item.hour }}</div>
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
+            <div>{{ item.calendarStart + " - " + item.calendarEnd }}</div>
+            <div>{{ item.hour + " h" }}</div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
             <!-- Edit Button -->
-            <button class="edit">
+            <button class="edit" (click)="editTask(item, item, 'inProgress')">
               <mat-icon class="mat-18">edit</mat-icon>
             </button>
             <!-- Delete Button -->
-            <button class="delete">
+            <button class="delete" (click)="deleteDialog(item)">
               <mat-icon class="mat-18">delete</mat-icon>
             </button>
           </div>
@@ -107,21 +105,20 @@
             (click)="openOrCloseDescription(item)"
             matTooltip="Drag & drop to sort your lists. Click to see/hide description."
           >
-            <div>{{ item.calendar }}</div>
-            <div>{{ item.calendarRange }}</div>
-            <div>{{ item.hour }}</div>
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
+            <div>{{ item.calendarStart + " - " + item.calendarEnd }}</div>
+            <div>{{ item.hour + " h" }}</div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
             <!-- Edit Button -->
-            <button class="edit">
+            <button class="edit" (click)="editTask(item, item, 'done')">
               <mat-icon class="mat-18">edit</mat-icon>
             </button>
             <!-- Delete Button -->
-            <button class="delete">
+            <button class="delete" (click)="deleteDialog(item)">
               <mat-icon class="mat-18">delete</mat-icon>
             </button>
           </div>

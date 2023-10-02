@@ -1,9 +1,9 @@
 export interface taskObject {
-  calendar: any;
-  calendarRange?: any;
+  calendarStart: any;
+  calendarEnd: any;
   hour: any;
   title: any;
   description: any;
   priority: string;
-  showDescription: boolean;
+  showDescription?: boolean;
 }
