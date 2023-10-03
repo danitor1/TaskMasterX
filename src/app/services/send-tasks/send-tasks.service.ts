@@ -8,13 +8,13 @@ import { taskObject } from 'src/app/interfaces/taskObject';
 export class SendTasksService {
   // Subject from Rxjs
   private eventSubject = new Subject<taskObject>();
-
-  information!:taskObject;
+  // Property for taskObject
+  information!: taskObject;
 
   constructor() {}
 
   // Emit Event
-  emitEvent(information:taskObject) {
+  emitEvent(information: taskObject) {
     this.information = information;
     this.eventSubject.next(information);
   }

@@ -1,3 +1,4 @@
+// Interface taskObject
 export interface taskObject {
   title: any;
   description: any;
@@ -5,5 +6,6 @@ export interface taskObject {
   calendarStart: any;
   calendarEnd: any;
   hour: any;
+  // Optional:
   showDescription?: boolean;
 }

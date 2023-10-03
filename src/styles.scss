@@ -2,6 +2,10 @@ html,
 body {
   height: 100%;
   margin: 0;
+  // Border-box to exactlys sizes in each element
+  box-sizing: border-box;
+  // Font-family
   font-family: "Merriweather", serif;
+  // Background-color
   background-color: #a0ffff;
 }

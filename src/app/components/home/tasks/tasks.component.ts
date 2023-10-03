@@ -3,7 +3,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { SendTasksService } from './../../../services/sendTasks/send-tasks.service';
+import { SendTasksService } from '../../../services/send-tasks/send-tasks.service';
 import { Component } from '@angular/core';
 import { taskObject } from 'src/app/interfaces/taskObject';
 import { MatDialog } from '@angular/material/dialog';
@@ -23,17 +23,20 @@ export class TasksComponent {
   toDo: taskObject[] = [];
   inProgress: taskObject[] = [];
   done: taskObject[] = [];
-
+// Information object for Send Tasks Service
   information!: taskObject;
 
   // Create a property for the subscription
   private eventSubscription!: Subscription;
 
   constructor(
+    // Send Tasks Service
     private sendTasksService: SendTasksService,
+    // Material Dialog
     private matDialog: MatDialog
   ) {}
 
+  // NgOnInit
   ngOnInit() {
     // Subscribe to SendTasksService
     this.eventSubscription = this.sendTasksService
@@ -250,9 +253,12 @@ export class TasksComponent {
         this.editDoneTask(taskToEdit, updatedTask);
         // Open dialog of edited task
         const editedDialog = this.matDialog.open(EditedMatDialogComponent, {});
+        // Set Timeout 1.5s
         setTimeout(() => {
           editedDialog.close();
         }, 1500);
+      } else {
+        this.matDialog.closeAll();
       }
     });
   }
@@ -276,6 +282,7 @@ export class TasksComponent {
           DeletedMatDialogComponent,
           {}
         );
+        // Set Timeout 1.5s
         setTimeout(() => {
           deletedDialog.close();
         }, 1500);

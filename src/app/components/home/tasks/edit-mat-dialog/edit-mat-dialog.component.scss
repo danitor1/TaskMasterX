@@ -1,16 +1,11 @@
+// Edit Mat Dialog Component
 * {
   font-family: inherit !important;
 }
 
-#mat-dialog {
+#edit-mat-dialog {
   cursor: default;
   background-color: var(--primary);
-}
-
-.mat-mdc-dialog-actions {
-  justify-content: start;
-  padding-left: 1.5rem;
-  padding-bottom: 1.5rem;
 }
 
 p {
@@ -69,6 +64,13 @@ form {
       background-color: var(--correct);
     }
   }
+}
+
+// Buttons
+.buttons {
+  justify-content: start;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 button {

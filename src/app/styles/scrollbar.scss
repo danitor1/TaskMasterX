@@ -1,9 +1,8 @@
+// General styles for Scrollbar
 * {
   scrollbar-color: var(--secondary) !important;
-}
-
-* {
-  scrollbar-track-color: var(--font2) !important;
+  scrollbar-track-color: var(--primary) !important;
+  scrollbar-width: 15px !important;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -15,13 +14,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--font2);
+  background: var(--secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary);
+  background: var(--primary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary);
+  background: var(--primary);
 }

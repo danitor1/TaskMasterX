@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { taskObject } from 'src/app/interfaces/taskObject';
-import { SendTasksService } from 'src/app/services/sendTasks/send-tasks.service';
+import { SendTasksService } from 'src/app/services/send-tasks/send-tasks.service';
 import { AddedMatDialogComponent } from './added-mat-dialog/added-mat-dialog.component';
 
 @Component({
@@ -25,10 +25,13 @@ export class AddComponent {
   information!: taskObject;
 
   constructor(
+    // Send Tasks Service
     private sendTasksService: SendTasksService,
+    // Material Dialog
     private matDialog: MatDialog
   ) {}
 
+  // NgOnInit
   ngOnInit(): void {
     // Init the Form Control and Form Group, in this order
     this.FormControl();
@@ -91,10 +94,11 @@ export class AddComponent {
     this.sendTasksService.emitEvent(this.information);
     // Close the form
     this.task = false;
-    // Reset form
+    // Reset form (to ensure)
     this.myForm.reset();
     // Open dialog
     const addedDialog = this.matDialog.open(AddedMatDialogComponent, {});
+    // Set Timeout 1.5s
     setTimeout(() => {
       addedDialog.close();
     }, 1500);

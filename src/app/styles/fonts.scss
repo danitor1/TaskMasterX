@@ -1,38 +1,41 @@
+// General styles for fonts
 :root {
+  // Font Size
   .headline1 {
-    font-size: 96px;
+    font-size: 100px;
   }
   .headline2 {
     font-size: 60px;
   }
   .headline3 {
-    font-size: 38px;
+    font-size: 40px;
   }
   .headline4 {
-    font-size: 28px;
+    font-size: 30px;
   }
   .headline5 {
-    font-size: 24px;
+    font-size: 26px;
   }
   .headline6 {
-    font-size: 22px;
+    font-size: 24px;
   }
   .headline7 {
-    font-size: 20px;
+    font-size: 22px;
   }
   .headline8 {
-    font-size: 18px;
+    font-size: 20px;
   }
   .p {
-    font-size: 16px;
+    font-size: 18px;
   }
   .button {
-    font-size: 14px;
+    font-size: 18px;
   }
   .small {
-    font-size: 12px;
+    font-size: 14px;
   }
 
+  // Font Weight
   .strong {
     font-weight: bold;
   }
@@ -49,24 +52,8 @@
     font-weight: 900;
   }
 
+  // Font Style
   .italic {
     font-style: italic;
   }
 }
-
-/*
-Use guide:
-<p class="headline1 bold">Material Headline 1</p>
-<p class="headline2 semiBold">Material Headline 2</p>
-<p class="headline3 medium">Material Headline 3</p>
-<p class="headline4 regular">Material Headline 4</p>
-<h1 class="h1 light">Texto h1</h1>
-<h2 class="h2 extraLight">Texto h2</h2>
-<h3 class="h3 strong">Texto h3</h3>
-<h4 class="h4 italic">Texto h4</h4>
-<h5 class="h5">Texto h5</h5>
-<h6 class="h6">Texto h6</h6>
-<p class="p">Párrafo (texto normal)</p>
-<p class="button">Texto button</p>
-<p class="small">Texto small</p>
-*/

@@ -1,2 +1,16 @@
 <!-- Router Outlet -->
-<router-outlet></router-outlet>
+<router-outlet>
+  <!-- Scroll to top Button -->
+  <div
+    [ngClass]="{
+      'light-mode': !darkMode,
+      'dark-mode': darkMode,
+      'show-scrollTop': windowScrolled
+    }"
+    class="scroll-to-top"
+  >
+    <button (click)="linksToTop()" aria-label="Top">
+      <mat-icon>expand_less</mat-icon>
+    </button>
+  </div>
+</router-outlet>
