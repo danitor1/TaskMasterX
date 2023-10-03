@@ -5,7 +5,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { SendTasksService } from '../../../services/send-tasks/send-tasks.service';
 import { Component } from '@angular/core';
-import { taskObject } from 'src/app/interfaces/taskObject';
+import { taskObject } from 'src/app/interface/taskObject';
 import { MatDialog } from '@angular/material/dialog';
 import { EditMatDialogComponent } from './edit-mat-dialog/edit-mat-dialog.component';
 import { DeleteMatDialogComponent } from './delete-mat-dialog/delete-mat-dialog.component';
@@ -23,7 +23,7 @@ export class TasksComponent {
   toDo: taskObject[] = [];
   inProgress: taskObject[] = [];
   done: taskObject[] = [];
-// Information object for Send Tasks Service
+  // Information object for Send Tasks Service
   information!: taskObject;
 
   // Create a property for the subscription
@@ -162,6 +162,7 @@ export class TasksComponent {
     item.showDescription = !item.showDescription;
   }
 
+  // Edit functions:
   // Edit "to do" task
   editToDoTask(taskToEdit: taskObject, updatedTask: taskObject) {
     // Find the index of the task to edit in the "to do" array
@@ -195,17 +196,31 @@ export class TasksComponent {
     }
   }
 
-  // Edit task
-  editTask(taskToEdit: taskObject, updatedTask: taskObject, arrayName: string) {
-    if (arrayName === 'toDo') {
-      this.editToDoTask(taskToEdit, updatedTask);
-    } else if (arrayName === 'inProgress') {
-      this.editInProgressTask(taskToEdit, updatedTask);
-    } else if (arrayName === 'done') {
-      this.editDoneTask(taskToEdit, updatedTask);
-    }
+  // Edit Material Dialog and apply the changes if the user confirms
+  editDialog(taskToEdit: taskObject): void {
+    // Open dialog
+    const dialogRef = this.matDialog.open(EditMatDialogComponent, {
+      data: { taskToEdit },
+    });
+    // Suscribe to the user response
+    dialogRef.afterClosed().subscribe((updatedTask: taskObject) => {
+      if (updatedTask) {
+        this.editToDoTask(taskToEdit, updatedTask);
+        this.editInProgressTask(taskToEdit, updatedTask);
+        this.editDoneTask(taskToEdit, updatedTask);
+        // Open dialog of edited task
+        const editedDialog = this.matDialog.open(EditedMatDialogComponent, {});
+        // Set Timeout 1.5s
+        setTimeout(() => {
+          editedDialog.close();
+        }, 1500);
+      } else {
+        this.matDialog.closeAll();
+      }
+    });
   }
 
+  // Delete functions:
   // Delete "to do" task
   deleteToDoTask(taskToDelete: taskObject) {
     // Find the index of this object in "to do" array
@@ -237,30 +252,6 @@ export class TasksComponent {
       // "Splice" for delete
       this.done.splice(index, 1);
     }
-  }
-
-  // Edit Material Dialog and apply the changes if the user confirms
-  editDialog(taskToEdit: taskObject): void {
-    // Open dialog
-    const dialogRef = this.matDialog.open(EditMatDialogComponent, {
-      data: { taskToEdit },
-    });
-    // Suscribe to the user response
-    dialogRef.afterClosed().subscribe((updatedTask: taskObject) => {
-      if (updatedTask) {
-        this.editToDoTask(taskToEdit, updatedTask);
-        this.editInProgressTask(taskToEdit, updatedTask);
-        this.editDoneTask(taskToEdit, updatedTask);
-        // Open dialog of edited task
-        const editedDialog = this.matDialog.open(EditedMatDialogComponent, {});
-        // Set Timeout 1.5s
-        setTimeout(() => {
-          editedDialog.close();
-        }, 1500);
-      } else {
-        this.matDialog.closeAll();
-      }
-    });
   }
 
   // Delete Material Dialog and apply the delete functions if the user confirms

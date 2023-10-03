@@ -11,7 +11,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding-top: 3rem;
-  padding-bottom: 3.7rem;
+  padding-bottom: 1.5rem;
 }
 
 // My-links
@@ -25,10 +25,8 @@
   gap: 1rem;
   .link {
     display: flex;
-    display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
     padding: 0.5rem;
     transition: 0.15s;
     cursor: pointer;
@@ -36,26 +34,6 @@
     color: var(--font);
     i {
       margin-bottom: 1px;
-    }
-    .icon-shadow {
-      position: absolute;
-      width: 1.2rem;
-      height: 1.2rem;
-      margin-top: 0.5px;
-      margin-left: 1px;
-      z-index: -1;
-      background: transparent;
-      box-shadow: 0 0 10px 0 var(--shadowBox);
-    }
-    .text {
-      color: var(--font);
-      text-shadow: 1px 0 10px var(--shadowText);
-    }
-    &:hover {
-      animation: shadowing 0.3s ease-out forwards;
-    }
-    &:not(:hover) {
-      animation: shadowingOut 0.3s ease-out forwards;
     }
   }
 }
@@ -71,9 +49,6 @@
   .date-box {
     padding: 0.6rem 0rem 0rem 0rem;
     color: var(--font);
-    .date {
-      text-shadow: 1px 0 10px var(--shadowText);
-    }
   }
   .box {
     cursor: pointer;
@@ -82,13 +57,6 @@
     color: var(--font);
     .link {
       color: var(--font);
-      text-shadow: 1px 0 10px var(--shadowText);
-    }
-    &:hover {
-      animation: shadowing 0.3s ease-out forwards;
-    }
-    &:not(:hover) {
-      animation: shadowingOut 0.3s ease-out forwards;
     }
   }
 }
@@ -107,7 +75,6 @@
   p {
     cursor: default;
     color: var(--font);
-    text-shadow: 1px 0 10px var(--shadowText);
   }
 }
 

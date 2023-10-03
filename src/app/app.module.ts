@@ -43,6 +43,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 // Drag & Drop
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
+// Pipe
+import { PriorityPipe } from './pipe/priority.pipe';
+
+// Services
+import { LightOrDarkService } from './services/light-or-dark/light-or-dark.service';
+import { SendTasksService } from './services/send-tasks/send-tasks.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +60,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FooterComponent,
     EditMatDialogComponent,
     DeleteMatDialogComponent,
+    PriorityPipe,
   ],
   imports: [
     AppRoutingModule,
@@ -71,7 +79,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatDialogModule,
     DragDropModule,
   ],
-  providers: [],
+  providers: [LightOrDarkService, SendTasksService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

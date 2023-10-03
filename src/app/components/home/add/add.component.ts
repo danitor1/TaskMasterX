@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { taskObject } from 'src/app/interfaces/taskObject';
+import { taskObject } from 'src/app/interface/taskObject';
 import { SendTasksService } from 'src/app/services/send-tasks/send-tasks.service';
 import { AddedMatDialogComponent } from './added-mat-dialog/added-mat-dialog.component';
 

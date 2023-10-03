@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { taskObject } from 'src/app/interfaces/taskObject';
+import { taskObject } from 'src/app/interface/taskObject';
 
 @Injectable({
   providedIn: 'root',

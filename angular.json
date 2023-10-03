@@ -26,7 +26,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/app/styles/bootstrap.scss",
               "src/app/styles/colors.scss",
               "src/app/styles/fonts.scss",
@@ -34,7 +34,9 @@
               "src/app/styles/scrollbar.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {

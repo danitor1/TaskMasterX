@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
-import { taskObject } from 'src/app/interfaces/taskObject';
+import { taskObject } from 'src/app/interface/taskObject';
 
 @Component({
   selector: 'edit-mat-dialog',

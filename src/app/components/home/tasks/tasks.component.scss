@@ -1,16 +1,15 @@
+// Tasks Component
 #tasks {
   padding-bottom: 8rem;
   overflow-x: hidden;
 }
 
-.tasksDiv {
+// Task Div
+.taskDiv {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 2rem;
-}
-
-.taskDiv {
   width: 400px;
   max-width: 100%;
   margin: 0 25px 25px 0;
@@ -18,29 +17,47 @@
   vertical-align: top;
 }
 
-.list {
-  border: solid 1px #ccc;
-  min-height: 60px;
-  background: white;
-  border-radius: 4px;
-  overflow: hidden;
-  display: block;
+// List Title
+.list-title {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  &.toDoTitle {
+    background-color: var(--toDo);
+  }
+  &.inProgressTitle {
+    background-color: var(--inProgress);
+  }
+  &.doneTitle {
+    background-color: var(--done);
+  }
 }
 
-.task{
-  padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+// List
+.list {
+  display: block;
+  min-height: 11rem;
+  overflow: hidden;
+  background: transparent;
+}
+
+// Task
+.task {
   display: column;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
   cursor: move;
-  background: white;
-  font-size: 14px;
+  background: var(--background);
 }
 
+.item-priority{
+  color: white;
+}
+
+// CDK Drag Styles
 .cdk-drag-preview {
   box-sizing: border-box;
   border-radius: 4px;
@@ -62,19 +79,4 @@
 
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-.title {
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
-
-.toDoTitle {
-  background-color: yellow;
-}
-.inProgressTitle {
-  background-color: cadetblue;
-}
-.doneTitle {
-  background-color: green;
 }

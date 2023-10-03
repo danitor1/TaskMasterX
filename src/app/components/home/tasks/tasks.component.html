@@ -6,8 +6,8 @@
     <div cdkDropListGroup class="tasksDiv">
       <!-- Task Div -->
       <div class="taskDiv">
-        <!-- Title -->
-        <div class="toDoTitle title">
+        <!-- List Title -->
+        <div class="toDoTitle list-title">
           <h2 class="p black">To do</h2>
         </div>
         <!-- List To Do -->
@@ -19,22 +19,44 @@
         >
           <!-- Task -->
           <div
-            class="task"
+            class="task p regular"
             *ngFor="let item of toDo"
             cdkDrag
             (click)="openOrCloseDescription(item)"
             matTooltip="Drag & drop to sort your lists. Click to see/hide description."
           >
-            <div>{{ item.title }}</div>
-            <div>{{ item.priority }}</div>
-            <div>
-              {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
-              {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+            <!-- Title -->
+            <div class="item-title">
+              <p>
+                {{ item.title }}
+              </p>
             </div>
-            <div>{{ item.hour + "h" }}</div>
+            <!-- Priority -->
+            <div class="item-priority">
+              <p class="small bold" [style.background-color]="item.priority | priority">
+                {{ item.priority }}
+              </p>
+            </div>
+            <!-- Calendar -->
+            <div class="item-calendar">
+              <p>
+                {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
+                {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+              </p>
+            </div>
+            <!-- Hour -->
+            <div class="item-hour">
+              <p>
+                {{ item.hour + "h" }}
+              </p>
+            </div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
-              <div>{{ item.description }}</div>
+              <div class="item-description">
+                <p>
+                  {{ item.description }}
+                </p>
+              </div>
             </ng-container>
             <!-- Edit Button -->
             <button class="edit" (mousedown)="editDialog(item)">
@@ -49,8 +71,8 @@
       </div>
       <!-- Task Div -->
       <div class="taskDiv">
-        <!-- Title -->
-        <div class="inProgressTitle title">
+        <!-- List Title -->
+        <div class="inProgressTitle list-title">
           <h2 class="p black">In progress</h2>
         </div>
         <!-- List In Progress -->
@@ -68,16 +90,38 @@
             (click)="openOrCloseDescription(item)"
             matTooltip="Drag & drop to sort your lists. Click to see/hide description."
           >
-            <div>{{ item.title }}</div>
-            <div>{{ item.priority }}</div>
-            <div>
-              {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
-              {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+            <!-- Title -->
+            <div class="item-title">
+              <p>
+                {{ item.title }}
+              </p>
             </div>
-            <div>{{ item.hour + "h" }}</div>
+            <!-- Priority -->
+            <div class="item-priority">
+              <p class="small bold" [style.background-color]="item.priority | priority">
+                {{ item.priority }}
+              </p>
+            </div>
+            <!-- Calendar -->
+            <div class="item-calendar">
+              <p>
+                {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
+                {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+              </p>
+            </div>
+            <!-- Hour -->
+            <div class="item-hour">
+              <p>
+                {{ item.hour + "h" }}
+              </p>
+            </div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
-              <div>{{ item.description }}</div>
+              <div class="item-description">
+                <p>
+                  {{ item.description }}
+                </p>
+              </div>
             </ng-container>
             <!-- Edit Button -->
             <button class="edit" (mousedown)="editDialog(item)">
@@ -92,8 +136,8 @@
       </div>
       <!-- Task Div -->
       <div class="taskDiv">
-        <!-- Title -->
-        <div class="doneTitle title">
+        <!-- List Title -->
+        <div class="doneTitle list-title">
           <h2 class="p black">Done</h2>
         </div>
         <!-- List Done -->
@@ -111,16 +155,38 @@
             (click)="openOrCloseDescription(item)"
             matTooltip="Drag & drop to sort your lists. Click to see/hide description."
           >
-            <div>{{ item.title }}</div>
-            <div>{{ item.priority }}</div>
-            <div>
-              {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
-              {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+            <!-- Title -->
+            <div class="item-title">
+              <p>
+                {{ item.title }}
+              </p>
             </div>
-            <div>{{ item.hour + "h" }}</div>
+            <!-- Priority -->
+            <div class="item-priority">
+              <p class="small bold" [style.background-color]="item.priority | priority">
+                {{ item.priority }}
+              </p>
+            </div>
+            <!-- Calendar -->
+            <div class="item-calendar">
+              <p>
+                {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
+                {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+              </p>
+            </div>
+            <!-- Hour -->
+            <div class="item-hour">
+              <p>
+                {{ item.hour + "h" }}
+              </p>
+            </div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
-              <div>{{ item.description }}</div>
+              <div class="item-description">
+                <p>
+                  {{ item.description }}
+                </p>
+              </div>
             </ng-container>
             <!-- Edit Button -->
             <button class="edit" (mousedown)="editDialog(item)">

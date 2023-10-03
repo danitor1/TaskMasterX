@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
-import { taskObject } from 'src/app/interfaces/taskObject';
+import { taskObject } from 'src/app/interface/taskObject';
 
 @Component({
   selector: 'delete-mat-dialog',
