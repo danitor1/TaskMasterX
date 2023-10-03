@@ -1,7 +1,6 @@
 // Footer
 #footer {
   overflow-x: hidden;
-  background-color: var(--background);
 }
 
 // Container
@@ -11,7 +10,6 @@
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 1199px; // only for xxl size
   padding-top: 3rem;
   padding-bottom: 3.7rem;
 }

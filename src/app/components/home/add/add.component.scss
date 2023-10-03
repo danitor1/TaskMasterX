@@ -1,9 +1,7 @@
 // Add Component
 #add {
-  padding-top: 2rem;
   padding-bottom: 2rem;
   overflow-x: hidden;
-  background-color: #ffc982;
 }
 
 // New Task Icon
@@ -12,17 +10,28 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  transition: 0.3s;
 }
 
 .mat-icon {
   font-size: 50px;
   height: 50px;
   width: 50px;
-  transition: 0.3s;
   cursor: pointer;
+  transition: 0.3s;
   color: var(--primary);
   &:hover {
+    animation: scaleAdd 0.3s forwards;
     color: var(--secondary);
+  }
+}
+
+@keyframes scaleAdd {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
   }
 }
 

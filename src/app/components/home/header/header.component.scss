@@ -1,13 +1,22 @@
-#header{
+// Header Component
+#header {
   padding-top: 2rem;
   padding-bottom: 2rem;
   overflow-x: hidden;
-  background-color: #a0ffff;
 }
 
-.titles{
+// Titles
+.titles {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: var(--text);
+}
+
+// Logo
+.logo {
+  position: relative;
+  width: 45px;
+  padding-bottom: 4rem;
 }
