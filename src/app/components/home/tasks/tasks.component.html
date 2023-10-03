@@ -27,14 +27,17 @@
           >
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
-            <div>{{ item.calendarStart + " - " + item.calendarEnd }}</div>
-            <div>{{ item.hour + " h" }}</div>
+            <div>
+              {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
+              {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+            </div>
+            <div>{{ item.hour + "h" }}</div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
             <!-- Edit Button -->
-            <button class="edit" (click)="editTask(item, item, 'toDo')">
+            <button class="edit" (click)="editDialog(item)">
               <mat-icon class="mat-18">edit</mat-icon>
             </button>
             <!-- Delete Button -->
@@ -67,14 +70,17 @@
           >
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
-            <div>{{ item.calendarStart + " - " + item.calendarEnd }}</div>
-            <div>{{ item.hour + " h" }}</div>
+            <div>
+              {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
+              {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+            </div>
+            <div>{{ item.hour + "h" }}</div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
             <!-- Edit Button -->
-            <button class="edit" (click)="editTask(item, item, 'inProgress')">
+            <button class="edit" (click)="editDialog(item)">
               <mat-icon class="mat-18">edit</mat-icon>
             </button>
             <!-- Delete Button -->
@@ -107,14 +113,17 @@
           >
             <div>{{ item.title }}</div>
             <div>{{ item.priority }}</div>
-            <div>{{ item.calendarStart + " - " + item.calendarEnd }}</div>
-            <div>{{ item.hour + " h" }}</div>
+            <div>
+              {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
+              {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
+            </div>
+            <div>{{ item.hour + "h" }}</div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div>{{ item.description }}</div>
             </ng-container>
             <!-- Edit Button -->
-            <button class="edit" (click)="editTask(item, item, 'done')">
+            <button class="edit" (click)="editDialog(item)">
               <mat-icon class="mat-18">edit</mat-icon>
             </button>
             <!-- Delete Button -->

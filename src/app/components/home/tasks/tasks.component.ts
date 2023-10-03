@@ -7,7 +7,11 @@ import { SendTasksService } from './../../../services/sendTasks/send-tasks.servi
 import { Component } from '@angular/core';
 import { taskObject } from 'src/app/interfaces/taskObject';
 import { MatDialog } from '@angular/material/dialog';
-import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
+import { EditMatDialogComponent } from './edit-mat-dialog/edit-mat-dialog.component';
+import { DeleteMatDialogComponent } from './delete-mat-dialog/delete-mat-dialog.component';
+import { Subscription } from 'rxjs';
+import { DeletedMatDialogComponent } from './deleted-mat-dialog/deleted-mat-dialog.component';
+import { EditedMatDialogComponent } from './edited-mat-dialog/edited-mat-dialog.component';
 
 @Component({
   selector: 'app-tasks',
@@ -20,100 +24,112 @@ export class TasksComponent {
   inProgress: taskObject[] = [];
   done: taskObject[] = [];
 
+  information!: taskObject;
+
+  // Create a property for the subscription
+  private eventSubscription!: Subscription;
+
   constructor(
     private sendTasksService: SendTasksService,
     private matDialog: MatDialog
   ) {}
 
   ngOnInit() {
-    // Tasks by default (using a custom interface) for test the appication before the use
+    // Subscribe to SendTasksService
+    this.eventSubscription = this.sendTasksService
+      .getEvent()
+      .subscribe((information) => {
+        // Push to "To Do" tasks
+        this.toDo.push(information);
+      });
+    // 9 Tasks by default (using a custom interface) for testing the appication before adding tasks
     // To do
     this.toDo = [
       {
-        calendarStart: 'Tue, Oct 10 2023',
-        calendarEnd: 'Fri, Oct 11 2023',
-        hour: '09:50',
         title: 'Task 1',
         description: 'Description of task 1',
         priority: 'Urgent',
+        calendarStart: 'Tue, Oct 10 2023',
+        calendarEnd: 'Fri, Oct 11 2023',
+        hour: '09:50',
         showDescription: false,
       },
       {
-        calendarStart: 'Wed, Oct 11 2023',
-        calendarEnd: 'Fri, Oct 13 2023',
-        hour: '15:10',
         title: 'Task 2',
         description: 'Description of task 2',
         priority: 'Important',
+        calendarStart: 'Wed, Oct 11 2023',
+        calendarEnd: 'Fri, Oct 13 2023',
+        hour: '15:10',
         showDescription: false,
       },
       {
-        calendarStart: 'Thu, Oct 12 2023',
-        calendarEnd: 'Fri, Oct 13 2023',
-        hour: '13:30',
         title: 'Task 3',
         description: 'Description of task 3',
         priority: 'Not important',
+        calendarStart: 'Thu, Oct 12 2023',
+        calendarEnd: 'Fri, Oct 13 2023',
+        hour: '13:30',
         showDescription: false,
       },
     ];
     // In progress
     this.inProgress = [
       {
-        calendarStart: 'Sat, Oct 07 2023',
-        calendarEnd: 'Mon, Oct 09 2023',
-        hour: '11:20',
         title: 'Task 4',
         description: 'Description of task 4',
         priority: 'Urgent',
+        calendarStart: 'Sat, Oct 07 2023',
+        calendarEnd: 'Mon, Oct 09 2023',
+        hour: '11:20',
         showDescription: false,
       },
       {
-        calendarStart: 'Sun, Oct 08 2023',
-        calendarEnd: 'Tue, Oct 10 2023',
-        hour: '16:30',
         title: 'Task 5',
         description: 'Description of task 5',
         priority: 'Important',
+        calendarStart: 'Sun, Oct 08 2023',
+        calendarEnd: 'Tue, Oct 10 2023',
+        hour: '16:30',
         showDescription: false,
       },
       {
-        calendarStart: 'Mon, Oct 09 2023',
-        calendarEnd: 'Wed, Oct 11 2023',
-        hour: '10:10',
         title: 'Task 6',
         description: 'Description of task 6',
         priority: 'Important',
+        calendarStart: 'Mon, Oct 09 2023',
+        calendarEnd: 'Wed, Oct 11 2023',
+        hour: '10:10',
         showDescription: false,
       },
     ];
     // Done
     this.done = [
       {
-        calendarStart: 'Wed, Sep 27 2023',
-        calendarEnd: 'Fri, Sep 29 2023',
-        hour: '09:40',
         title: 'Task 7',
         description: 'Description of task 7',
         priority: 'Urgent',
+        calendarStart: 'Wed, Sep 27 2023',
+        calendarEnd: 'Fri, Sep 29 2023',
+        hour: '09:40',
         showDescription: false,
       },
       {
-        calendarStart: 'Thu, Sep 28 2023',
-        calendarEnd: 'Fri, Sep 29 2023',
-        hour: '12:30',
         title: 'Task 8',
         description: 'Description of task 8',
         priority: 'Urgent',
+        calendarStart: 'Thu, Sep 28 2023',
+        calendarEnd: 'Fri, Sep 29 2023',
+        hour: '12:30',
         showDescription: false,
       },
       {
-        calendarStart: 'Fri, Sep 29 2023',
-        calendarEnd: 'Sat, Sep 30 2023',
-        hour: '13:10',
         title: 'Task 9',
         description: 'Description of task 9',
         priority: 'Important',
+        calendarStart: 'Fri, Sep 29 2023',
+        calendarEnd: 'Sat, Sep 30 2023',
+        hour: '13:10',
         showDescription: false,
       },
     ];
@@ -220,23 +236,59 @@ export class TasksComponent {
     }
   }
 
-  // Delete dialog and apply the delete functions if the user confirms
-  deleteDialog(taskToDelete: taskObject): void {
+  // Edit Material Dialog and apply the changes if the user confirms
+  editDialog(taskToEdit: taskObject): void {
     // Open dialog
-    const dialogRef = this.matDialog.open(MatDialogComponent, {
-      // Pass the task you want to delete to the dialog
-      data: taskToDelete,
+    const dialogRef = this.matDialog.open(EditMatDialogComponent, {
+      data: { taskToEdit },
     });
     // Suscribe to the user response
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe((updatedTask: taskObject) => {
+      if (updatedTask) {
+        this.editToDoTask(taskToEdit, updatedTask);
+        this.editInProgressTask(taskToEdit, updatedTask);
+        this.editDoneTask(taskToEdit, updatedTask);
+        // Open dialog of edited task
+        const editedDialog = this.matDialog.open(EditedMatDialogComponent, {});
+        setTimeout(() => {
+          editedDialog.close();
+        }, 1500);
+      }
+    });
+  }
+
+  // Delete Material Dialog and apply the delete functions if the user confirms
+  deleteDialog(taskToDelete: taskObject): void {
+    // Open dialog
+    const dialogRef = this.matDialog.open(DeleteMatDialogComponent, {
+      // Pass the task you want to delete to the dialog
+      data: { taskToDelete },
+    });
+    // Suscribe to the user response
+    dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result === true) {
         // The user confirmed the delete so call the 3 delete functions
         this.deleteToDoTask(taskToDelete);
         this.deleteInProgressTask(taskToDelete);
         this.deleteDoneTask(taskToDelete);
+        // Open dialog of deleted task
+        const deletedDialog = this.matDialog.open(
+          DeletedMatDialogComponent,
+          {}
+        );
+        setTimeout(() => {
+          deletedDialog.close();
+        }, 1500);
       } else {
         this.matDialog.closeAll();
       }
     });
+  }
+
+  // Unsubscribe when the component is destroyed
+  ngOnDestroy() {
+    if (this.eventSubscription) {
+      this.eventSubscription.unsubscribe();
+    }
   }
 }

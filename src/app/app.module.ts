@@ -21,6 +21,8 @@ import { HeaderComponent } from './components/home/header/header.component';
 import { AddComponent } from './components/home/add/add.component';
 import { TasksComponent } from './components/home/tasks/tasks.component';
 import { FooterComponent } from './components/home/footer/footer.component';
+import { EditMatDialogComponent } from './components/home/tasks/edit-mat-dialog/edit-mat-dialog.component';
+import { DeleteMatDialogComponent } from './components/home/tasks/delete-mat-dialog/delete-mat-dialog.component';
 
 // Angular Material Components:
 // Form
@@ -49,6 +51,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AddComponent,
     TasksComponent,
     FooterComponent,
+    EditMatDialogComponent,
+    DeleteMatDialogComponent,
   ],
   imports: [
     AppRoutingModule,

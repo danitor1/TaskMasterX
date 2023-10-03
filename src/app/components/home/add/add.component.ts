@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { taskObject } from 'src/app/interfaces/taskObject';
 import { SendTasksService } from 'src/app/services/sendTasks/send-tasks.service';
+import { AddedMatDialogComponent } from './added-mat-dialog/added-mat-dialog.component';
 
 @Component({
   selector: 'app-add',
@@ -8,7 +11,7 @@ import { SendTasksService } from 'src/app/services/sendTasks/send-tasks.service'
   styleUrls: ['./add.component.scss'],
 })
 export class AddComponent {
-  // Property to activate show or hide the form
+  // Property to activate open or close the form
   task: boolean = false;
   // ForomGroup and FormControl properties
   myForm!: FormGroup;
@@ -18,21 +21,21 @@ export class AddComponent {
   title!: FormControl;
   priority!: FormControl;
   description!: FormControl;
-  // To activate the notification that the message has been sent
-  sent = false;
-  // New Date() for the Time Picker
-  mytime: Date = new Date();
+  // Information object for Send Tasks Service
+  information!: taskObject;
 
-  constructor(private sendTasksService: SendTasksService) {}
+  constructor(
+    private sendTasksService: SendTasksService,
+    private matDialog: MatDialog
+  ) {}
 
-  // ngOnInit()
   ngOnInit(): void {
     // Init the Form Control and Form Group, in this order
     this.FormControl();
     this.FormGroup();
   }
 
-  // New Task Button (show or hide the form)
+  // New Task Button (open or close the form)
   newTask() {
     this.task = !this.task;
   }
@@ -67,7 +70,7 @@ export class AddComponent {
     );
   }
 
-  // Submit the info of the form
+  // Submit Form Button
   onSubmit(
     calendarStart: any,
     calendarEnd: any,
@@ -76,18 +79,29 @@ export class AddComponent {
     description: any,
     priority: string
   ) {
-    // Sent information with Service to Tasks Component
-    this.sendTasksService.emitEvent();
-
-    console.log(calendarStart, calendarEnd, hour, title, description, priority);
-
-    // Hide the form
+    this.information = {
+      calendarStart,
+      calendarEnd,
+      hour,
+      title,
+      description,
+      priority,
+    };
+    // Send information with Service to Tasks Component
+    this.sendTasksService.emitEvent(this.information);
+    // Close the form
     this.task = false;
-
     // Reset form
     this.myForm.reset();
+    // Open dialog
+    const addedDialog = this.matDialog.open(AddedMatDialogComponent, {});
+    setTimeout(() => {
+      addedDialog.close();
+    }, 1500);
+  }
 
-    // Change "sent" property to true for display notification
-    this.sent = true;
+  // Close form Button
+  closeForm() {
+    this.task = false;
   }
 }

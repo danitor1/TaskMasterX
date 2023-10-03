@@ -40,15 +40,18 @@
             *ngIf="title.valid && title.dirty && title.value.length <= 150"
           >
             <div class="alert-correct">
-              <p class="text-correct">Title is valid (max 150 characters)</p>
+              <p class="text-correct">Title is valid (1-150 characters)</p>
             </div>
           </ng-container>
           <!-- Alert Error of Title -->
           <ng-container
-            *ngIf="title.invalid && title.dirty && title.value.length > 150"
+            *ngIf="
+              (title.invalid && title.dirty && title.value.length > 150) ||
+              (title.invalid && title.dirty)
+            "
           >
             <div class="alert-error">
-              <p class="text-error">Title is not valid (max 150 characters)</p>
+              <p class="text-error">Title is not valid (1-150 characters)</p>
             </div>
           </ng-container>
         </div>
@@ -76,21 +79,22 @@
           >
             <div class="alert-correct">
               <p class="text-correct">
-                Description is valid (max 1000 characters)
+                Description is valid (1-1000 characters)
               </p>
             </div>
           </ng-container>
           <!-- Alert Error of Description -->
           <ng-container
             *ngIf="
-              description.invalid &&
-              description.dirty &&
-              description.value.length > 1000
+              (description.invalid &&
+                description.dirty &&
+                description.value.length > 1000) ||
+              (description.invalid && description.dirty)
             "
           >
             <div class="alert-error">
               <p class="text-error">
-                Description is not valid (max 1000 characters)
+                Description is not valid (1-1000 characters)
               </p>
             </div>
           </ng-container>
@@ -213,11 +217,14 @@
             </div>
           </ng-container>
         </div>
-        <!-- Submit the info of the form -->
-        <div class="submitDiv">
+        <!-- Buttons -->
+        <div class="buttons">
+          <!-- Submit the info of the form -->
           <button class="submit" type="submit" [disabled]="myForm.invalid">
             Add task
           </button>
+          <!-- Close the form-->
+          <button class="close" (click)="closeForm()">Cancel</button>
         </div>
       </form>
     </ng-container>

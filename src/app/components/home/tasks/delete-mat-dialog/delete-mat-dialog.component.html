@@ -1,0 +1,15 @@
+<!-- Delete Mat Dialog -->
+<div id="delete-mat-dialog">
+  <!-- Title -->
+  <div class="title">
+    <p>
+      You have selected to delete
+      {{ taskToDelete.title }}. Are you sure?
+    </p>
+  </div>
+  <!-- Buttons -->
+  <div class="close">
+    <button mat-button (click)="onConfirmClick()">Delete</button>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+  </div>
+</div>
