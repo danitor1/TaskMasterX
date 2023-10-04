@@ -4,22 +4,33 @@
   overflow-x: hidden;
 }
 
+// Tasks Div
+.tasksDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
 // Task Div
 .taskDiv {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 2rem;
-  width: 400px;
+  width: 415px;
   max-width: 100%;
-  margin: 0 25px 25px 0;
   display: inline-block;
   vertical-align: top;
 }
 
 // List Title
 .list-title {
-  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
   border-radius: 0.5rem;
   &.toDoTitle {
     background-color: var(--toDo);
@@ -42,19 +53,51 @@
 
 // Task
 .task {
-  display: column;
-  flex-direction: row;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   margin-top: 0.5rem;
   border-radius: 0.5rem;
+  gap: 2px;
   cursor: move;
   background: var(--background);
 }
 
-.item-priority{
-  color: white;
+// Item Priority
+.item-priority {
+  position: relative;
+  top: -1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  p {
+    padding: 0rem 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+  }
+}
+
+.item-description {
+  border-top: 1px solid var(--secondary);
+  padding-top: 0.2rem;
+  margin-top: 0.2rem;
+}
+
+// Buttons
+.buttons {
+  position: relative;
+  margin-top: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+
+  button {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 // CDK Drag Styles

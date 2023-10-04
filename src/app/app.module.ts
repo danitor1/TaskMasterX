@@ -38,6 +38,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 // Dialog
 import { MatDialogModule } from '@angular/material/dialog';
+// Button
+import { MatButtonModule } from '@angular/material/button';
 
 // Angular Material CDK:
 // Drag & Drop
@@ -78,6 +80,7 @@ import { SendTasksService } from './services/send-tasks/send-tasks.service';
     MatTooltipModule,
     MatDialogModule,
     DragDropModule,
+    MatButtonModule,
   ],
   providers: [LightOrDarkService, SendTasksService],
   bootstrap: [AppComponent],

@@ -4,8 +4,13 @@
 }
 
 #delete-mat-dialog {
+  padding: 1rem;
   cursor: default;
   background-color: var(--primary);
+}
+
+.title {
+  padding-bottom: 0.5rem;
 }
 
 p {
@@ -13,23 +18,26 @@ p {
 }
 
 // Buttons
-.buttons {
-  justify-content: start;
-  padding-left: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 button {
   height: 2.2rem;
-  border: none;
   padding: 0rem 0.7rem;
   margin: 0.1rem;
-  transition: 0.15s;
-  color: var(--font2);
-  background-color: white;
-  border: 1px solid var(--primary);
-  &:hover {
-    color: var(--font);
-    background-color: var(--primary);
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  &.submit {
+    background-color: var(--submit);
+    &:disabled {
+      background-color: var(--delete);
+    }
+    &:hover {
+      background-color: #0069da;
+    }
+  }
+  &.close {
+    background-color: var(--delete);
+    &:hover {
+      background-color: #686868;
+    }
   }
 }

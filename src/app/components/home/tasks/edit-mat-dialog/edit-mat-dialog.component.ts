@@ -38,6 +38,9 @@ export class EditMatDialogComponent {
     // Form Builder for edit like a form
     private formBuilder: FormBuilder
   ) {
+    // Init the form in constructor for receive the inputs and be able to edit
+    this.FormControl();
+    this.FormGroup();
     // Asign each element for edit like a form
     this.editForm = this.formBuilder.group({
       title: data.taskToEdit.title,
@@ -47,12 +50,6 @@ export class EditMatDialogComponent {
       calendarEnd: data.taskToEdit.calendarEnd,
       hour: data.taskToEdit.hour,
     });
-  }
-
-  ngOnInit(): void {
-    // Init the Form Control and Form Group, in this order
-    this.FormControl();
-    this.FormGroup();
   }
 
   // Form

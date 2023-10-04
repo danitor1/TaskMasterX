@@ -2,3 +2,59 @@
 button:focus-visible {
   outline: -webkit-focus-ring-color auto 0px !important;
 }
+
+// Reduce the area button in "mini-fab" buttons
+.mat-mdc-mini-fab .mat-mdc-button-touch-target {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+// Delete box-shadow
+.mat-mdc-mini-fab {
+  box-shadow: none !important;
+}
+
+// Change colors of Angular Material Theme
+// Primary
+.mat-primary {
+  --mdc-fab-container-color: var(--primary) !important;
+}
+
+// Warn
+.mat-warn {
+  --mdc-fab-container-color: var(--delete) !important;
+}
+
+// Change width of Material Form inputs
+mat-form-field {
+  width: 350px !important;
+}
+
+// Change the width of Calendar
+.mat-datepicker-content .mat-calendar {
+  width: 350px !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: var(--primary) !important;
+}
+
+// Change this for Calendar's inputs with
+.mat-mdc-form-field-subscript-wrapper {
+  width: auto !important;
+}
+
+// Change the border-radius of the inputs
+.mat-mdc-text-field-wrapper {
+  border-radius: 0.5rem !important;
+}
+
+// Eliminate max-width of Material Dialog for see nice one mobile
+.cdk-overlay-pane {
+  max-width: none !important;
+}
+
+// Eliminate the font-family by default in Material Buttons
+.mdc-button {
+  font-family: unset !important;
+}

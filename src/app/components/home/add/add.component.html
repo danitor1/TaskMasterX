@@ -4,7 +4,7 @@
   <div class="container">
     <!-- New Task -->
     <div class="newTaskDiv">
-      <mat-icon (click)="newTask()">add_circle</mat-icon>
+      <mat-icon (click)="newTask()" matTooltip="New task">add_circle</mat-icon>
     </div>
     <!-- Form -->
     <ng-container class="formDiv" *ngIf="task">
@@ -34,24 +34,24 @@
           />
         </mat-form-field>
         <!-- Alerts -->
-        <div class="alerts">
+        <div class="alerts small regular">
           <!-- Alert Valid of Title -->
           <ng-container
-            *ngIf="title.valid && title.dirty && title.value.length <= 150"
+            *ngIf="title.valid && title.dirty && title.value.length <= 80"
           >
             <div class="alert-correct">
-              <p class="text-correct">Title is valid (1-150 characters)</p>
+              <p class="text-correct">Title is valid (1-80 characters)</p>
             </div>
           </ng-container>
           <!-- Alert Error of Title -->
           <ng-container
             *ngIf="
-              (title.invalid && title.dirty && title.value.length > 150) ||
+              (title.invalid && title.dirty && title.value.length > 80) ||
               (title.invalid && title.dirty)
             "
           >
             <div class="alert-error">
-              <p class="text-error">Title is not valid (1-150 characters)</p>
+              <p class="text-error">Title is not valid (1-80 characters)</p>
             </div>
           </ng-container>
         </div>
@@ -68,7 +68,7 @@
           ></textarea>
         </mat-form-field>
         <!-- Alerts -->
-        <div class="alerts">
+        <div class="alerts small regular">
           <!-- Alert Valid of Description -->
           <ng-container
             *ngIf="
@@ -108,13 +108,13 @@
             formControlName="priority"
             required
           >
-            <mat-option value="urgent">Urgent</mat-option>
-            <mat-option value="important">Important</mat-option>
-            <mat-option value="notImportant">Not important</mat-option>
+            <mat-option value="Urgent">Urgent</mat-option>
+            <mat-option value="Important">Important</mat-option>
+            <mat-option value="Not important">Not important</mat-option>
           </mat-select>
         </mat-form-field>
         <!-- Alerts -->
-        <div class="alerts">
+        <div class="alerts small regular">
           <!-- Alert Valid of Priority -->
           <ng-container *ngIf="priority.valid && priority.dirty">
             <div class="alert-correct">
@@ -129,7 +129,7 @@
           </ng-container>
         </div>
         <!-- Calendar (Dates) -->
-        <mat-form-field class="calendarDiv" style="width: 600px">
+        <mat-form-field class="calendarDiv">
           <mat-label>Start-Finish Dates</mat-label>
           <mat-date-range-input [rangePicker]="rangePicker">
             <input
@@ -156,15 +156,17 @@
           ></mat-datepicker-toggle>
           <mat-date-range-picker #rangePicker>
             <mat-date-range-picker-actions>
-              <button mat-button matDateRangePickerCancel>Cancel</button>
-              <button mat-raised-button color="primary" matDateRangePickerApply>
+              <button class="submit" mat-raised-button matDateRangePickerApply>
                 Apply
+              </button>
+              <button class="close" mat-button matDateRangePickerCancel>
+                Cancel
               </button>
             </mat-date-range-picker-actions>
           </mat-date-range-picker>
         </mat-form-field>
         <!-- Alerts -->
-        <div class="alerts">
+        <div class="alerts small regular">
           <!-- Alert Valid of CalendarStart -->
           <ng-container *ngIf="calendarStart.valid && calendarStart.dirty">
             <div class="alert-correct">
@@ -203,7 +205,7 @@
           />
         </mat-form-field>
         <!-- Alerts -->
-        <div class="alerts">
+        <div class="alerts small regular">
           <!-- Alert Valid of Hour -->
           <ng-container *ngIf="hour.valid && hour.dirty">
             <div class="alert-correct">

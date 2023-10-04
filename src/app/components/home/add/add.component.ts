@@ -49,7 +49,7 @@ export class AddComponent {
     this.calendarEnd = new FormControl('', [Validators.required]);
     this.hour = new FormControl('', [Validators.required]);
     this.title = new FormControl('', [
-      Validators.maxLength(150),
+      Validators.maxLength(80),
       Validators.required,
     ]);
     this.description = new FormControl('', [

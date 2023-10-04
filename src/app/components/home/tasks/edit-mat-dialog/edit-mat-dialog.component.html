@@ -1,12 +1,5 @@
 <!-- Edit Mat Dialog Component -->
 <div id="edit-mat-dialog">
-  <!-- Title -->
-  <div class="title">
-    <p>
-      Edit the task
-      {{ data.taskToEdit.title }}:
-    </p>
-  </div>
   <!-- Form for edit -->
   <form [formGroup]="editForm">
     <!-- Title -->
@@ -22,24 +15,30 @@
       />
     </mat-form-field>
     <!-- Alerts -->
-    <div class="alerts">
+    <div class="alerts small regular">
       <!-- Alert Valid of Title -->
       <ng-container
-        *ngIf="title.valid && title.dirty && title.value.length <= 150"
+        *ngIf="
+          editForm.get('title')?.valid &&
+          editForm.get('title')?.dirty &&
+          editForm.get('title')?.value.length <= 80
+        "
       >
         <div class="alert-correct">
-          <p class="text-correct">Title is valid (1-150 characters)</p>
+          <p class="text-correct">Title is valid (1-80 characters)</p>
         </div>
       </ng-container>
       <!-- Alert Error of Title -->
       <ng-container
         *ngIf="
-          (title.invalid && title.dirty && title.value.length > 150) ||
-          (title.invalid && title.dirty)
+          (editForm.get('title')?.invalid &&
+            editForm.get('title')?.dirty &&
+            editForm.get('title')?.value.length > 80) ||
+          (editForm.get('title')?.invalid && editForm.get('title')?.dirty)
         "
       >
         <div class="alert-error">
-          <p class="text-error">Title is not valid (1-150 characters)</p>
+          <p class="text-error">Title is not valid (1-80 characters)</p>
         </div>
       </ng-container>
     </div>
@@ -56,13 +55,13 @@
       ></textarea>
     </mat-form-field>
     <!-- Alerts -->
-    <div class="alerts">
+    <div class="alerts small regular">
       <!-- Alert Valid of Description -->
       <ng-container
         *ngIf="
-          description.valid &&
-          description.dirty &&
-          description.value.length <= 1000
+          editForm.get('description')?.valid &&
+          editForm.get('description')?.dirty &&
+          editForm.get('description')?.value.length <= 1000
         "
       >
         <div class="alert-correct">
@@ -72,10 +71,11 @@
       <!-- Alert Error of Description -->
       <ng-container
         *ngIf="
-          (description.invalid &&
-            description.dirty &&
-            description.value.length > 1000) ||
-          (description.invalid && description.dirty)
+          (editForm.get('description')?.invalid &&
+            editForm.get('description')?.dirty &&
+            editForm.get('description')?.value.length > 1000) ||
+          (editForm.get('description')?.invalid &&
+            editForm.get('description')?.dirty)
         "
       >
         <div class="alert-error">
@@ -92,21 +92,29 @@
         formControlName="priority"
         required
       >
-        <mat-option value="urgent">Urgent</mat-option>
-        <mat-option value="important">Important</mat-option>
-        <mat-option value="notImportant">Not important</mat-option>
+        <mat-option value="Urgent">Urgent</mat-option>
+        <mat-option value="Important">Important</mat-option>
+        <mat-option value="Not important">Not important</mat-option>
       </mat-select>
     </mat-form-field>
     <!-- Alerts -->
-    <div class="alerts">
+    <div class="alerts small regular">
       <!-- Alert Valid of Priority -->
-      <ng-container *ngIf="priority.valid && priority.dirty">
+      <ng-container
+        *ngIf="
+          editForm.get('priority')?.valid && editForm.get('priority')?.dirty
+        "
+      >
         <div class="alert-correct">
           <p class="text-correct">Priority is valid</p>
         </div>
       </ng-container>
       <!-- Alert Error of Priority -->
-      <ng-container *ngIf="priority.invalid && priority.dirty">
+      <ng-container
+        *ngIf="
+          editForm.get('priority')?.invalid && editForm.get('priority')?.dirty
+        "
+      >
         <div class="alert-error">
           <p class="text-error">Priority is not valid</p>
         </div>
@@ -140,35 +148,57 @@
       ></mat-datepicker-toggle>
       <mat-date-range-picker #rangePicker>
         <mat-date-range-picker-actions>
-          <button mat-button matDateRangePickerCancel>Cancel</button>
-          <button mat-raised-button color="primary" matDateRangePickerApply>
+          <button class="submit" mat-raised-button matDateRangePickerApply>
             Apply
+          </button>
+          <button class="close" mat-button matDateRangePickerCancel>
+            Cancel
           </button>
         </mat-date-range-picker-actions>
       </mat-date-range-picker>
     </mat-form-field>
     <!-- Alerts -->
-    <div class="alerts">
+    <div class="alerts small regular">
       <!-- Alert Valid of CalendarStart -->
-      <ng-container *ngIf="calendarStart.valid && calendarStart.dirty">
+      <ng-container
+        *ngIf="
+          editForm.get('calendarStart')?.valid &&
+          editForm.get('calendarStart')?.dirty
+        "
+      >
         <div class="alert-correct">
           <p class="text-correct">Start day is valid</p>
         </div>
       </ng-container>
       <!-- Alert Error of Calendar -->
-      <ng-container *ngIf="calendarStart.invalid && calendarStart.dirty">
+      <ng-container
+        *ngIf="
+          editForm.get('calendarStart')?.invalid &&
+          editForm.get('calendarStart')?.dirty
+        "
+      >
         <div class="alert-error">
           <p class="text-error">Start day not valid</p>
         </div>
       </ng-container>
       <!-- Alert Valid of CalendarEnd -->
-      <ng-container *ngIf="calendarEnd.valid && calendarEnd.dirty">
+      <ng-container
+        *ngIf="
+          editForm.get('calendarEnd')?.valid &&
+          editForm.get('calendarEnd')?.dirty
+        "
+      >
         <div class="alert-correct">
           <p class="text-correct">End day is valid</p>
         </div>
       </ng-container>
       <!-- Alert Error of Calendar -->
-      <ng-container *ngIf="calendarEnd.invalid && calendarEnd.dirty">
+      <ng-container
+        *ngIf="
+          editForm.get('calendarEnd')?.invalid &&
+          editForm.get('calendarEnd')?.dirty
+        "
+      >
         <div class="alert-error">
           <p class="text-error">End day is not valid</p>
         </div>
@@ -187,15 +217,19 @@
       />
     </mat-form-field>
     <!-- Alerts -->
-    <div class="alerts">
+    <div class="alerts small regular">
       <!-- Alert Valid of Hour -->
-      <ng-container *ngIf="hour.valid && hour.dirty">
+      <ng-container
+        *ngIf="editForm.get('hour')?.valid && editForm.get('hour')?.dirty"
+      >
         <div class="alert-correct">
           <p class="text-correct">Hour is valid</p>
         </div>
       </ng-container>
       <!-- Alert Error of Hour -->
-      <ng-container *ngIf="hour.invalid && hour.dirty">
+      <ng-container
+        *ngIf="editForm.get('hour')?.invalid && editForm.get('hour')?.dirty"
+      >
         <div class="alert-error">
           <p class="text-error">Hour is not valid</p>
         </div>
@@ -203,10 +237,15 @@
     </div>
     <!-- Buttons -->
     <div class="buttons">
-      <button (click)="confirmEdit()" type="submit" [disabled]="editForm.invalid">
+      <button
+        class="submit"
+        (click)="confirmEdit()"
+        type="submit"
+        [disabled]="editForm.invalid"
+      >
         Save
       </button>
-      <button (click)="cancelEdit()">Cancel</button>
+      <button class="close" (click)="cancelEdit()">Cancel</button>
     </div>
   </form>
 </div>

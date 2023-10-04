@@ -7,11 +7,11 @@
 .container {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
   padding-top: 3rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 // My-links
@@ -22,7 +22,6 @@
   flex-wrap: wrap;
   height: 4rem;
   margin-left: -7px;
-  gap: 1rem;
   .link {
     display: flex;
     flex-direction: row;
@@ -43,16 +42,17 @@
   display: flex;
   flex-direction: row;
   align-content: center;
+  align-items: center;
   flex-wrap: wrap;
   height: 4rem;
-  gap: 1rem;
+  gap: 0.3rem;
   .date-box {
-    padding: 0.6rem 0rem 0rem 0rem;
     color: var(--font);
   }
   .box {
+    display: flex;
+    align-items: flex-end;
     cursor: pointer;
-    padding: 0.5rem;
     transition: 0.15s;
     color: var(--font);
     .link {
@@ -78,6 +78,11 @@
   }
 }
 
+// Buttons
+button {
+  border-radius: 0.5rem;
+}
+
 // ***Media Queries***
 
 // Large (1199px - 992px)
@@ -87,10 +92,6 @@
   .link,
   .rights {
     font-size: 16px;
-  }
-
-  .copy .date-box {
-    padding: 0.55rem 0rem 0rem 0rem;
   }
 }
 

@@ -1,7 +1,7 @@
 // Header Component
 #header {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   overflow-x: hidden;
 }
 
@@ -13,10 +13,52 @@
   align-items: center;
   color: var(--text);
 }
+.title,
+.subtitle {
+  text-align: center;
+}
 
 // Logo
 .logo {
   position: relative;
   width: 45px;
   padding-bottom: 4rem;
+}
+
+// Large (1199px - 992px)
+@media screen and (max-width: 1199px) {
+  .title {
+    font-size: 60px;
+  }
+  .subtitle {
+    font-size: 18px;
+  }
+  .logo {
+    position: relative;
+    width: 35px;
+    padding-bottom: 2rem;
+  }
+}
+
+// Small (767px - 576px)
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 40px;
+  }
+  .subtitle {
+    position: relative;
+    top: -0.4rem;
+    font-size: 16px;
+  }
+  .logo {
+    width: 30px;
+    padding-bottom: 1.7rem;
+  }
+}
+
+// Extra small (575px - 0px (calculate to 360px))
+@media screen and (max-width: 575px) {
+  .title {
+    font-size: 30px;
+  }
 }

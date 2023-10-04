@@ -8,7 +8,7 @@
       <div class="taskDiv">
         <!-- List Title -->
         <div class="toDoTitle list-title">
-          <h2 class="p black">To do</h2>
+          <h2 class="headline7 black">To do</h2>
         </div>
         <!-- List To Do -->
         <div
@@ -27,45 +27,61 @@
           >
             <!-- Title -->
             <div class="item-title">
-              <p>
+              <p class="p bold">
                 {{ item.title }}
               </p>
             </div>
             <!-- Priority -->
             <div class="item-priority">
-              <p class="small bold" [style.background-color]="item.priority | priority">
+              <p
+                class="small regular"
+                [style.background-color]="item.priority | priority"
+              >
                 {{ item.priority }}
               </p>
             </div>
             <!-- Calendar -->
             <div class="item-calendar">
-              <p>
+              <p class="small regular italic">
                 {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
                 {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
               </p>
             </div>
             <!-- Hour -->
             <div class="item-hour">
-              <p>
+              <p class="small regular italic">
                 {{ item.hour + "h" }}
               </p>
             </div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div class="item-description">
-                <p>
+                <p class="p medium">
                   {{ item.description }}
                 </p>
               </div>
             </ng-container>
-            <!-- Edit Button -->
-            <button class="edit" (mousedown)="editDialog(item)">
-              <mat-icon class="mat-18">edit</mat-icon>
-            </button>
-            <!-- Delete Button -->
-            <button class="delete" (mousedown)="deleteDialog(item)">
-              <mat-icon class="mat-18">delete</mat-icon>
-            </button>
+            <!-- Buttons -->
+            <div class="buttons">
+              <!-- Edit Button -->
+              <button
+                mat-mini-fab
+                color="primary"
+                class="edit"
+                (mousedown)="editDialog(item)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <!-- Delete Button -->
+              <button
+                mat-mini-fab
+                color="warn"
+                class="delete"
+                (mousedown)="deleteDialog(item)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -73,7 +89,7 @@
       <div class="taskDiv">
         <!-- List Title -->
         <div class="inProgressTitle list-title">
-          <h2 class="p black">In progress</h2>
+          <h2 class="headline7 black">In progress</h2>
         </div>
         <!-- List In Progress -->
         <div
@@ -92,45 +108,61 @@
           >
             <!-- Title -->
             <div class="item-title">
-              <p>
+              <p class="p bold">
                 {{ item.title }}
               </p>
             </div>
             <!-- Priority -->
             <div class="item-priority">
-              <p class="small bold" [style.background-color]="item.priority | priority">
+              <p
+                class="small regular"
+                [style.background-color]="item.priority | priority"
+              >
                 {{ item.priority }}
               </p>
             </div>
             <!-- Calendar -->
             <div class="item-calendar">
-              <p>
+              <p class="small regular italic">
                 {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
                 {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
               </p>
             </div>
             <!-- Hour -->
             <div class="item-hour">
-              <p>
+              <p class="small regular italic">
                 {{ item.hour + "h" }}
               </p>
             </div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div class="item-description">
-                <p>
+                <p class="p medium">
                   {{ item.description }}
                 </p>
               </div>
             </ng-container>
-            <!-- Edit Button -->
-            <button class="edit" (mousedown)="editDialog(item)">
-              <mat-icon class="mat-18">edit</mat-icon>
-            </button>
-            <!-- Delete Button -->
-            <button class="delete" (mousedown)="deleteDialog(item)">
-              <mat-icon class="mat-18">delete</mat-icon>
-            </button>
+            <!-- Buttons -->
+            <div class="buttons">
+              <!-- Edit Button -->
+              <button
+                mat-mini-fab
+                color="primary"
+                class="edit"
+                (mousedown)="editDialog(item)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <!-- Delete Button -->
+              <button
+                mat-mini-fab
+                color="warn"
+                class="delete"
+                (mousedown)="deleteDialog(item)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -138,7 +170,7 @@
       <div class="taskDiv">
         <!-- List Title -->
         <div class="doneTitle list-title">
-          <h2 class="p black">Done</h2>
+          <h2 class="headline7 black">Done</h2>
         </div>
         <!-- List Done -->
         <div
@@ -157,45 +189,61 @@
           >
             <!-- Title -->
             <div class="item-title">
-              <p>
+              <p class="p bold">
                 {{ item.title }}
               </p>
             </div>
             <!-- Priority -->
             <div class="item-priority">
-              <p class="small bold" [style.background-color]="item.priority | priority">
+              <p
+                class="small regular"
+                [style.background-color]="item.priority | priority"
+              >
                 {{ item.priority }}
               </p>
             </div>
             <!-- Calendar -->
             <div class="item-calendar">
-              <p>
+              <p class="small regular italic">
                 {{ item.calendarStart | date : "EE, MMM d 'of' y" }} -
                 {{ item.calendarEnd | date : "EE, MMM d 'of' y" }}
               </p>
             </div>
             <!-- Hour -->
             <div class="item-hour">
-              <p>
+              <p class="small regular italic">
                 {{ item.hour + "h" }}
               </p>
             </div>
             <!-- Description -->
             <ng-container *ngIf="item.showDescription">
               <div class="item-description">
-                <p>
+                <p class="p medium">
                   {{ item.description }}
                 </p>
               </div>
             </ng-container>
-            <!-- Edit Button -->
-            <button class="edit" (mousedown)="editDialog(item)">
-              <mat-icon class="mat-18">edit</mat-icon>
-            </button>
-            <!-- Delete Button -->
-            <button class="delete" (mousedown)="deleteDialog(item)">
-              <mat-icon class="mat-18">delete</mat-icon>
-            </button>
+            <!-- Buttons -->
+            <div class="buttons">
+              <!-- Edit Button -->
+              <button
+                mat-mini-fab
+                color="primary"
+                class="edit"
+                (mousedown)="editDialog(item)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <!-- Delete Button -->
+              <button
+                mat-mini-fab
+                color="warn"
+                class="delete"
+                (mousedown)="deleteDialog(item)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -49,8 +49,8 @@ export class TasksComponent {
     // To do
     this.toDo = [
       {
-        title: 'Task 1',
-        description: 'Description of task 1',
+        title: 'Code Review',
+        description: 'Description of Code Review.',
         priority: 'Urgent',
         calendarStart: 'Tue, Oct 10 2023',
         calendarEnd: 'Fri, Oct 11 2023',
@@ -58,8 +58,8 @@ export class TasksComponent {
         showDescription: false,
       },
       {
-        title: 'Task 2',
-        description: 'Description of task 2',
+        title: 'Bug Fixing',
+        description: 'Description of Bug Fixing.',
         priority: 'Important',
         calendarStart: 'Wed, Oct 11 2023',
         calendarEnd: 'Fri, Oct 13 2023',
@@ -67,8 +67,8 @@ export class TasksComponent {
         showDescription: false,
       },
       {
-        title: 'Task 3',
-        description: 'Description of task 3',
+        title: 'Client Meetings',
+        description: 'Description of Client Meetings.',
         priority: 'Not important',
         calendarStart: 'Thu, Oct 12 2023',
         calendarEnd: 'Fri, Oct 13 2023',
@@ -79,8 +79,8 @@ export class TasksComponent {
     // In progress
     this.inProgress = [
       {
-        title: 'Task 4',
-        description: 'Description of task 4',
+        title: 'Database Design',
+        description: 'Description of Database Design.',
         priority: 'Urgent',
         calendarStart: 'Sat, Oct 07 2023',
         calendarEnd: 'Mon, Oct 09 2023',
@@ -88,8 +88,8 @@ export class TasksComponent {
         showDescription: false,
       },
       {
-        title: 'Task 5',
-        description: 'Description of task 5',
+        title: 'Project Planning',
+        description: 'Description of Project Planning.',
         priority: 'Important',
         calendarStart: 'Sun, Oct 08 2023',
         calendarEnd: 'Tue, Oct 10 2023',
@@ -97,8 +97,8 @@ export class TasksComponent {
         showDescription: false,
       },
       {
-        title: 'Task 6',
-        description: 'Description of task 6',
+        title: 'Software Testing',
+        description: 'Description of Software Testing.',
         priority: 'Important',
         calendarStart: 'Mon, Oct 09 2023',
         calendarEnd: 'Wed, Oct 11 2023',
@@ -109,8 +109,8 @@ export class TasksComponent {
     // Done
     this.done = [
       {
-        title: 'Task 7',
-        description: 'Description of task 7',
+        title: 'Documentation',
+        description: 'Description of Documentation.',
         priority: 'Urgent',
         calendarStart: 'Wed, Sep 27 2023',
         calendarEnd: 'Fri, Sep 29 2023',
@@ -118,8 +118,8 @@ export class TasksComponent {
         showDescription: false,
       },
       {
-        title: 'Task 8',
-        description: 'Description of task 8',
+        title: 'User Interface (UI) Design',
+        description: 'Description of User Interface (UI) Design.',
         priority: 'Urgent',
         calendarStart: 'Thu, Sep 28 2023',
         calendarEnd: 'Fri, Sep 29 2023',
@@ -127,8 +127,8 @@ export class TasksComponent {
         showDescription: false,
       },
       {
-        title: 'Task 9',
-        description: 'Description of task 9',
+        title: 'Version Control',
+        description: 'Description of Version Control.',
         priority: 'Important',
         calendarStart: 'Fri, Sep 29 2023',
         calendarEnd: 'Sat, Sep 30 2023',

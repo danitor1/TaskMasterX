@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 70px;
+  left: 70px;
   top: 36px;
   height: 3rem;
   width: 3rem;
@@ -32,5 +32,16 @@
   }
   100% {
     transform: rotate(-360deg);
+  }
+}
+
+// Small (767px - 576px)
+@media screen and (max-width: 767px) {
+  .modes {
+    left: 10px;
+    top: 10px;
+    height: 2rem;
+    width: 2rem;
+    font-size: 2rem;
   }
 }
