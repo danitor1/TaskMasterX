@@ -58,3 +58,19 @@ mat-form-field {
 .mdc-button {
   font-family: unset !important;
 }
+
+// Change the color for Material Drag
+// This element goes out of the app-roout during the drag, so only can use one color here
+.cdk-drag-preview {
+  color: #141212 !important;
+  background: #e2e2e2 !important;
+  // Change the border-color of item description
+  .item-description {
+    border-top: 1px solid #141212 !important;
+  }
+}
+
+// Change border-radius of Material Dialog
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 0.5rem !important;
+}

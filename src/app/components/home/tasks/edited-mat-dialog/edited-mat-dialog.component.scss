@@ -4,11 +4,17 @@
 }
 
 #edited-mat-dialog {
+  background-color: var(--dialog);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
   padding: 1rem;
-  cursor: default;
-  background-color: var(--primary);
 }
 
 p {
-  color: var(--font2);
+  color: #141212;
 }

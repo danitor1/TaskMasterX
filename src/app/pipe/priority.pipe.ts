@@ -9,9 +9,9 @@ export class PriorityPipe implements PipeTransform {
       case 'Urgent':
         return '#b30000';
       case 'Important':
-        return '#004691';
+        return '#9E00A3';
       case 'Not important':
-        return '#4b4b4b';
+        return '#575757';
       default:
         return 'inherit';
     }

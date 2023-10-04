@@ -16,15 +16,3 @@ ul {
 a {
   text-decoration: none;
 }
-
-// Change Bootstrap containers 'width' in extra small (mobile)
-@media (max-width: 576px) {
-  .container,
-  .container-xxl,
-  .container-xl,
-  .container-lg,
-  .container-md,
-  .container-sm {
-    width: 92%;
-  }
-}

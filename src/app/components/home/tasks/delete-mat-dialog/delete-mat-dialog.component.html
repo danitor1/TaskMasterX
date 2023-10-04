@@ -1,15 +1,20 @@
 <!-- Delete Mat Dialog Component -->
 <div id="delete-mat-dialog">
-  <!-- Title -->
-  <div class="title">
-    <p>
-      You have selected to delete
-      {{ taskToDelete.title }}. Are you sure?
-    </p>
-  </div>
-  <!-- Buttons -->
-  <div class="buttons">
-    <button class="submit" mat-button (click)="onConfirmClick()">Delete</button>
-    <button class="close" mat-button (click)="onCancelClick()">Cancel</button>
+  <!-- Container -->
+  <div class="container">
+    <!-- Title -->
+    <div class="title">
+      <p>
+        You have selected to delete
+        {{ taskToDelete.title }}. Are you sure?
+      </p>
+    </div>
+    <!-- Buttons -->
+    <div class="buttons">
+      <button class="submit" mat-button (click)="onConfirmClick()">
+        Delete
+      </button>
+      <button class="close" mat-button (click)="onCancelClick()">Cancel</button>
+    </div>
   </div>
 </div>

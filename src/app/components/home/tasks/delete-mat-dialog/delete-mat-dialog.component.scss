@@ -4,40 +4,41 @@
 }
 
 #delete-mat-dialog {
-  padding: 1rem;
-  cursor: default;
-  background-color: var(--primary);
+  background-color: var(--dialog);
 }
 
-.title {
-  padding-bottom: 0.5rem;
+.container {
+  max-width: 350px;
+  padding: 1rem;
 }
 
 p {
-  color: var(--font2);
+  padding-bottom: 0.5rem;
+  color: #141212;
 }
 
 // Buttons
 button {
   height: 2.2rem;
-  padding: 0rem 0.7rem;
   margin: 0.1rem;
   border: none;
   border-radius: 0.5rem;
-  color: white;
+  transition: 0.3s;
   &.submit {
-    background-color: var(--submit);
+    color: white;
+    background-color: var(--primary);
     &:disabled {
       background-color: var(--delete);
     }
     &:hover {
-      background-color: #0069da;
+      background-color: var(--submit);
     }
   }
   &.close {
+    color: white;
     background-color: var(--delete);
     &:hover {
-      background-color: #686868;
+      background-color: var(--deleteHover);
     }
   }
 }

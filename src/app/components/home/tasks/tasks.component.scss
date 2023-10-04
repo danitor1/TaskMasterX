@@ -32,6 +32,7 @@
   justify-content: flex-start;
   padding: 1rem;
   border-radius: 0.5rem;
+  color: var(--font);
   &.toDoTitle {
     background-color: var(--toDo);
   }
@@ -61,6 +62,7 @@
   border-radius: 0.5rem;
   gap: 2px;
   cursor: move;
+  color: var(--font);
   background: var(--background);
 }
 
@@ -80,7 +82,7 @@
 }
 
 .item-description {
-  border-top: 1px solid var(--secondary);
+  border-top: 1px solid var(--font);
   padding-top: 0.2rem;
   margin-top: 0.2rem;
 }
@@ -97,13 +99,20 @@
   button {
     width: 30px;
     height: 30px;
+    transition: 0.3s;
+    &.edit:hover {
+      background-color: var(--submit);
+    }
+    &.delete:hover {
+      background-color: var(--deleteHover);
+    }
   }
 }
 
 // CDK Drag Styles
 .cdk-drag-preview {
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
     0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }

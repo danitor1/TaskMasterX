@@ -20,7 +20,7 @@
   transition: 0.3s;
   color: var(--primary);
   &:hover {
-    color: var(--secondary);
+    color: #54a7ff;
     animation: rotate-center 0.3s linear forwards;
   }
 }
